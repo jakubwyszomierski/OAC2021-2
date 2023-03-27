@@ -28,7 +28,7 @@ List of of folders (subfolders & files) in the project:
   - Transformed - datasets transformed with IHS (analysis-ready)
   - Final_variables - datasets with OAC variables only
   - Clustering - results of the clustering algorithms
-- **Lookups** - reference tables for 2011 and 2021 Census variables [link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EopoRyd87XpCjTWeVkQky-QBIIXWU4omlWYrTy9CA2a68g?e=aHy5I0)
+- **Lookups** - reference tables for 2011 and 2021 Census variables ([link])(https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EopoRyd87XpCjTWeVkQky-QBIIXWU4omlWYrTy9CA2a68g?e=aHy5I0)
 - **NISRA 2021** - 2021 Census data at LGD level for Northern Ireland
 - **Objects** - `R` objects saved in the process of the analysis. 
   - `Aged_Scotland_8_class_2k.RDS`
