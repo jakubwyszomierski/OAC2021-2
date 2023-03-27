@@ -1,0 +1,29 @@
+import pyarrow.parquet as pq
+import pandas as pd
+from clustergram import Clustergram
+import sklearn
+import cudf
+import matplotlib.pyplot as plt
+import pickle
+
+df = pd.read_csv('~/Desktop/PhD/GIT/OAC2021/Data/Clustering/Hybrid_OAC.csv')
+
+df = df.set_index('Geography_Code')
+
+# This is the way to run with a GPU
+cgram = Clustergram(range(1, 8), backend='cuML',n_init=10)
+cgram.fit(df)
+
+
+# This is the way to run with a CPU - note that you have to switch the dataframe format - this is because it was originally read into GPU memory using cudf.read_parquet - you can read a CSV directly into pandas using - pd.read_csv(). 
+
+cgram = Clustergram(range(1, 15), backend='sklearn',n_init=1000)
+df2= df.to_pandas()
+cgram.fit(df2)
+
+
+#This plots the results...
+
+cgram.plot(figsize=(12, 8))
+plt.savefig('../clustergram.pdf')
+
