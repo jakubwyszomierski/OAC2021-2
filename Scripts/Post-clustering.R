@@ -160,6 +160,11 @@ for(reclass in unique(Supergroups_centers_diff$Supergroup8)){
 }
 
 
+write.csv(Supergroups_centers[,c(61,1:60)], "Data/Clustering/OAC_centroids.csv", row.names = F)
+
+
+
+
 
 
 
@@ -230,7 +235,7 @@ for(i in 1:length(OAC_Groups_clustering)){
    
 
     
-   ggsave(filename=paste0("Plots/Bar_plots/Groups/",gsub(" ","_",group_label), ".png"), group_bar_plot, bg = "white", height = 22)
+   ggsave(filename=paste0("Plots/Bar_plots/Groups/",gsub(" ","_",group_label), ".png"), group_bar_plot, bg = "white", height = 22,width=11)
   }
   
   
@@ -238,12 +243,8 @@ for(i in 1:length(OAC_Groups_clustering)){
 
 
 
-Groups_centroids
-
-
-
-
-
+Groups_centroids = Groups_centroids[,c(61,1:60)]
+write.csv(Groups_centroids, "Data/Clustering/OAC_Groups_centroids.csv", row.names=F)
 
 
 
@@ -251,7 +252,7 @@ Groups_centroids
 ##########         SUBGROUPS        #########
 #############################################
 
-Subgroup_centers = NULL
+Subgroup_centroids = NULL
   for(i in names(OAC_Subgroups_clustering)){
 
     
@@ -290,7 +291,7 @@ Subgroup_centers = NULL
     Subgroups_cluster_centers$id = rownames(Subgroups_cluster_centers)
     Subgroups_cluster_centers = Subgroups_cluster_centers %>% mutate(id=paste0(i,id))
     
-    Subgroup_centers = rbind(Subgroup_centers, Subgroups_cluster_centers)
+    Subgroup_centroids = rbind(Subgroup_centroids, Subgroups_cluster_centers)
     
     
     Subgroups_cluster_centers_diff$id = rownames(Subgroups_cluster_centers_diff)
@@ -339,13 +340,16 @@ Subgroup_centers = NULL
       
       
       
-     ggsave(filename=paste0("Plots/Bar_plots/Subgroups/",gsub(" ","_",subgroup_label), ".png"), subgroup_bar_plot, bg = "white", height = 22)
+     ggsave(filename=paste0("Plots/Bar_plots/Subgroups/",gsub(" ","_",subgroup_label), ".png"), subgroup_bar_plot, bg = "white", height = 22, width=11)
     }
     
     
   }
   
+Subgroup_centroids = Subgroup_centroids[,c(61,1:60)]
+colnames(Subgroup_centroids)[1] = "Subgroup"
 
+write.csv(Subgroup_centroids, "Data/Clustering/OAC_Subgroups_centroids.csv", row.names=F)
 
 
 
@@ -454,8 +458,8 @@ group_colors = brewer.pal(5, "Set1")[-4]
 
 
 tmap_mode("view")
-tm_shape(Aged_shp %>% filter(agreed_for_alternative=="1b1")) + 
-   tm_fill(col="agreed_for_alternative",  palette=group_colors, 
+tm_shape(Aged_shp %>% filter(Subgroup=="4c2")) + 
+   tm_fill(col="Subgroup",  palette=group_colors, 
            alpha = 0.5,  colorNA = "grey90", legend.show = F) +
   tm_borders()+
   tm_layout(frame=F)
@@ -498,7 +502,7 @@ for(cluster in c(1:8)){
 
   
   tm_Supergroup = tm_shape(dat %>% mutate(Supergroup8 = as.factor(ifelse(Supergroup8==cluster, cluster, NA)))) + 
-    tm_fill("Supergroup8",  alpha = 0.9,palette = OAC_colors,colorNA = "grey90", legend.show = T, showNA = T, title="Supergroup") +
+    tm_fill("Supergroup8",  alpha = 0.9,palette = OAC_colors,colorNA = "grey90", legend.show = T, showNA = F, title="Supergroup") +
     tm_compass(position=c("right", "bottom"), size = 3) + 
     tm_layout(frame=F, legend.position = c("left", "bottom"))
   
@@ -521,6 +525,18 @@ for(cluster in c(1:8)){
 
 
 
+# Define the initial color in hex format
+initial_color <- "#FF5733"
+# Define the number of colors to create
+n_colors <- 3
+# Create a sequence of increasing lightness values between 0 and 1
+lightness_vals <- seq(0, 1, length.out = n_colors)
+# Apply the lighten function to the initial color for each lightness value
+lighter_colors <- sapply(lightness_vals, function(l) colorspace::lighten(initial_color, amount = l))
+# View the resulting lighter colors
+lighter_colors
+
+
 
 
 
@@ -534,8 +550,23 @@ for(shp in c("Aged_shp", "London_maps")){
 for(Reclass in c(1:8)){
   
   ### SAVE PREFFERED GROUP SOLUTION
+  
+  
+  # Define the initial color in hex format
+  initial_color <- OAC_colors[Reclass][[1]]
+  # Define the number of colors to create
+  n_colors <- length(unique(Aged_Scotland_OAC[Aged_Scotland_OAC$Supergroup8==Reclass, "Group"]))
+  # Create a sequence of increasing lightness values between 0 and 1
+  lightness_vals <- seq(0.1, 0.8, length.out = n_colors)
+  # Apply the lighten function to the initial color for each lightness value
+  lighter_colors <- sapply(lightness_vals, function(l) colorspace::lighten(initial_color, amount = l))
+  # View the resulting lighter colors
+  lighter_colors
+  
+  
+  
      tm_Group <-  tm_shape(dat %>% mutate(Group = ifelse(Supergroup8==Reclass, Group, NA ))) + 
-              tm_fill(col="Group",  alpha = 0.9, style = "cat", palette=group_colors, colorNA = "grey94", 
+              tm_fill(col="Group",  alpha = 0.9, style = "cat", palette=lighter_colors, colorNA = "grey94", 
                       title=paste("Cluster ", Reclass), showNA = F) +
               tm_layout(frame=F, legend.position = c("left", "bottom"))
   
@@ -547,8 +578,8 @@ for(Reclass in c(1:8)){
                        save_name="UK_"
                      }
 
-     suppressMessages(tmap_save(tm_Group, dpi = 1700,
-                                filename = paste0("Maps/Clustering/Groups/",save_name,"Groups_",Reclass ,".png")))
+     tmap_save(tm_Group, dpi = 1700,
+                                filename = paste0("Maps/Clustering/Groups/",save_name,"Groups_",Reclass ,".png"))
   
   }
 }
@@ -574,29 +605,42 @@ for(shp in c("Aged_shp", "London_maps")){
   
 
   ### GET THE GROUP
-  for(gr in sort(unique(dat$Group))){
+  for(gr in sort(unique(dat$Supergroup8))){
   
 
     
     ### SELECT THE VARIABLES BASED ON THE SOLUTION GROUP
-    
-                 sub_dat = tm_dat %>% select(var, agreed_for_agreed, alternative_for_agreed)
+
 
     
       
          #### GET THE SUBGROUP SOLUTION
-            for(subgroups in colnames(sub_dat)[2:3]){
+     #       for(subgroups in colnames(sub_dat)[2:3]){
 
-              sub_dat2 = sub_dat
-              colnames(sub_dat2)[grep(subgroups, colnames(sub_dat2))] = "subg"
+     #         sub_dat2 = sub_dat
+     #         colnames(sub_dat2)[grep(subgroups, colnames(sub_dat2))] = "subg"
               
 
+    
+    
+    # Define the initial color in hex format
+    initial_color <- OAC_colors[gr][[1]]
+    # Define the number of colors to create
+    n_colors <- length(unique(Aged_Scotland_OAC[Aged_Scotland_OAC$Supergroup8==Reclass, "Subgroup"]))
+    # Create a sequence of increasing lightness values between 0 and 1
+    lightness_vals <- seq(0.1, 0.9, length.out = n_colors)
+    # Apply the lighten function to the initial color for each lightness value
+    lighter_colors <- sapply(lightness_vals, function(l) colorspace::lighten(initial_color, amount = l))
+    # View the resulting lighter colors
+    lighter_colors
+    
+    
+    
               ### SAVE PREFFERED GROUP SOLUTION
-              tm_Subgroup <-  tm_shape(sub_dat2 %>% mutate(subg = ifelse(var==gr, subg, NA ))) + 
-                tm_fill(col="subg",  alpha = 0.9, style = "cat", palette=group_colors, colorNA = "grey94", title=paste("Group", gr), showNA = F) +
+              tm_Subgroup <-  tm_shape(dat %>% mutate(Subgroup = ifelse(Supergroup8==gr, Subgroup, NA ))) + 
+                tm_fill(col="Subgroup",  alpha = 0.9, style = "cat", palette=lighter_colors, colorNA = "grey94", title=paste("Group", gr), showNA = F) +
                 tm_layout(frame=F, legend.position = c("left", "bottom"))
               
-    
                         if(shp=="London_maps"){
                           tm_Subgroup = tm_Subgroup + tm_shape(London_boroughs) + tm_borders(col="grey45", lwd = 1.1) + 
                             tm_scale_bar(position = c("right", "bottom"),width = 0.15)
@@ -605,16 +649,12 @@ for(shp in c("Aged_shp", "London_maps")){
                           save_name="UK_"
                         }
               
-              suppressMessages(tmap_save(tm_Subgroup, 
-                                         filename = paste0("Maps/Clustering/Subgroups/", subgroups,"/",
-                                                           save_name, subgroups, "_", gr, ".png"), dpi = 1700))
-              
+              tmap_save(tm_Subgroup, 
+                                         filename = paste0("Maps/Clustering/Subgroups/",
+                                                           save_name, gr, ".png"), dpi = 1700)
               
             }
-
-      
     }
-  }
-}
+
 
 
