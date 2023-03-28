@@ -25,8 +25,7 @@ List of folders (subfolders & files) in the project:
   - Transformed - datasets transformed with IHS (analysis-ready)
   - Final_variables - datasets with OAC variables only
   - Clustering - results of the clustering algorithms
-
-- **Clustering** - datasets with cluster assignment for the UK and centroids.
+- **Clustering** - datasets with cluster assignment for the UK and centroids. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EhLNiogo5IZHtH1NKikh8e4BaWhJoaTpOKek7vmEXY40Qg?e=meb4sI)
 - **Lookups** - reference tables for 2011 and 2021 Census variables. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EopoRyd87XpCjTWeVkQky-QBIIXWU4omlWYrTy9CA2a68g?e=aHy5I0)
 - **NISRA 2021** - 2021 Census data at LGD level for Northern Ireland. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EsNU1WxSz0pGkxG0OejUTD8Bz0uB7OOPWnjsLTmH-uiTjg?e=Hho4X7)
 - **SIR** – contingency tables on disability counts by age, utilised for calculation of Standardised Illness Ratio. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EreqlG5R7-5PmVmDTdlAQ1YBwN1qZb-43FyTwPFksw2F7w?e=lzYp1B)
@@ -37,3 +36,7 @@ Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/
 
 - Bar_plots - Comparison of clusters to the UK (as well as Supergroup and Group averages)
 - Clustergrams – plots used to establish number of clusters at each classification level. 
+
+### Maps
+
+Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/El562C0yOhlBlPTIKM8qx88BUfxrJM8rd3k2KlYCUeTA4g?e=UF0tZi).
