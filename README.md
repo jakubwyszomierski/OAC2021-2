@@ -9,46 +9,34 @@ Creation of the **2021/2 Output Area Classification**
 - `Comparing_Censuses.R` - data cleaning and amalgamation.
 - `Transforming_Census_data.R` – data manipulation and transformation for the classification.
 - `NI.R` – modelling 2021 data for Northern Ireland.
-- `Correlation.R` - testing correlation between the variables
-- `Pre-clustering.R` - 
-- `Clustering.R`
-- `Post-clustering.R`
-- `Correlation.R`
-
-- `Clustergram.ipynb` – creating Clustergrams in Python. 
+- `Correlation.R` - testing correlation between the variables.
+- `Pre-clustering.R` - preparing data for clustering.
+- `Clustering.R` - clustering of the data.
+- `Post-clustering.R` - creating maps and plots of the cluster solution.
+- `Clustergram.ipynb` – creating Clustergrams in Python. (Credits: Prof Alex Singleton)
 
 ### Data
+List of folders (subfolders & files) in the project:
 
-List of of folders (subfolders & files) in the project:
-
-- **API**
+- **API** - Census data downloadded and saved with use of `nomisr` package.
 - **Clean** – amalgamated data ready for the analysis.
   - Raw_counts - datasets with raw counts
   - Percentages - datasets transformed into percentages
   - Transformed - datasets transformed with IHS (analysis-ready)
   - Final_variables - datasets with OAC variables only
-  - Clustering - results of the clustering algorithms
-  
-- **Lookups** - reference tables for 2011 and 2021 Census variables
-- **NISRA 2021** - 2021 Census data at LGD level for Northern Ireland
-- **Objects** - `R` objects saved in the process of the analysis. 
-  - `Aged_Scotland_8_class_2k.RDS`
-- **SIR** – contingency tables on disability counts by age, utilised for calculation of Standardised Illness Ratio.
+  - All_data_clustering - results of the clustering for all investigated datasets.
+- **Clustering** - datasets with cluster assignment for the UK and centroids. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EhLNiogo5IZHtH1NKikh8e4BaWhJoaTpOKek7vmEXY40Qg?e=meb4sI)
+- **Lookups** - reference tables for 2011 and 2021 Census variables. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EopoRyd87XpCjTWeVkQky-QBIIXWU4omlWYrTy9CA2a68g?e=aHy5I0)
+- **NISRA 2021** - 2021 Census data at LGD level for Northern Ireland. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EsNU1WxSz0pGkxG0OejUTD8Bz0uB7OOPWnjsLTmH-uiTjg?e=Hho4X7)
+- **SIR** – contingency tables on disability counts by age, utilised for calculation of Standardised Illness Ratio. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EreqlG5R7-5PmVmDTdlAQ1YBwN1qZb-43FyTwPFksw2F7w?e=lzYp1B)
 
+### Plots
 
-2021 Census tables are stored in specific subfolders for different administrative levels.
+Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/Ejr-KcCj7qVIv4K6kTsH_90BlTw3kQvLsiP8P9k4Qjid5w?e=wEtlDz).
 
-- `Census2021_wide.csv` – All Census tables from the selected administrative level merged 
-- `Tables_metadata.csv` – Metadata for all Census 2021 tables created by the ONS
-- `Topic_summaries_metadata.xlsx` – Metadata for Topic summaries provided by ONS (includes population bases and reference to 2011 Census) 
-- `Variables_metadata.csv` – Metadata for all variables created from the Census 2021
-
-
-`API` folder contains data at different administrative levels downloaded and saved with the use of `nomisr` package.
-
-`Bulk` folder contains data of all 2021 Census statistics, with tables at all administrative levels at which particular table is avaiable. 
-
+- Bar_plots - Comparison of clusters to the UK (as well as Supergroup and Group averages)
+- Clustergrams – plots used to establish number of clusters at each classification level. 
 
 ### Maps
 
-### Plots
+Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/El562C0yOhlBlPTIKM8qx88BUfxrJM8rd3k2KlYCUeTA4g?e=UF0tZi).
