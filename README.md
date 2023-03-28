@@ -24,7 +24,7 @@ List of folders (subfolders & files) in the project:
   - Percentages - datasets transformed into percentages
   - Transformed - datasets transformed with IHS (analysis-ready)
   - Final_variables - datasets with OAC variables only
-  - Clustering - results of the clustering algorithms
+  - All_data_clustering - results of the clustering for all investigated datasets.
 - **Clustering** - datasets with cluster assignment for the UK and centroids. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EhLNiogo5IZHtH1NKikh8e4BaWhJoaTpOKek7vmEXY40Qg?e=meb4sI)
 - **Lookups** - reference tables for 2011 and 2021 Census variables. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EopoRyd87XpCjTWeVkQky-QBIIXWU4omlWYrTy9CA2a68g?e=aHy5I0)
 - **NISRA 2021** - 2021 Census data at LGD level for Northern Ireland. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EsNU1WxSz0pGkxG0OejUTD8Bz0uB7OOPWnjsLTmH-uiTjg?e=Hho4X7)
