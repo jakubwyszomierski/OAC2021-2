@@ -16,7 +16,7 @@ Creation of the **2021/2 Output Area Classification**
 - `Clustergram.ipynb` – creating Clustergrams in Python. 
 
 ### Data
-List of of folders (subfolders & files) in the project:
+List of folders (subfolders & files) in the project:
 
 - **API** - Census data downloadded and saved with use of `nomisr` package.
 - **Clean** – amalgamated data ready for the analysis.
@@ -31,4 +31,9 @@ List of of folders (subfolders & files) in the project:
 - **NISRA 2021** - 2021 Census data at LGD level for Northern Ireland. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EsNU1WxSz0pGkxG0OejUTD8Bz0uB7OOPWnjsLTmH-uiTjg?e=Hho4X7)
 - **SIR** – contingency tables on disability counts by age, utilised for calculation of Standardised Illness Ratio. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EreqlG5R7-5PmVmDTdlAQ1YBwN1qZb-43FyTwPFksw2F7w?e=lzYp1B)
 
+### Plots
 
+Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/Ejr-KcCj7qVIv4K6kTsH_90BlTw3kQvLsiP8P9k4Qjid5w?e=wEtlDz).
+
+- Bar_plots - Comparison of clusters to the UK (as well as Supergroup and Group averages)
+- Clustergrams – plots used to establish number of clusters at each classification level. 
