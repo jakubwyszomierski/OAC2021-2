@@ -13,7 +13,7 @@ Creation of the **2021/2 Output Area Classification**
 - `Pre-clustering.R` - preparing data for clustering.
 - `Clustering.R` - clustering of the data.
 - `Post-clustering.R` - creating maps and plots of the cluster solution.
-- `Clustergram.ipynb` – creating Clustergrams in Python. (Credits: Prof Alex Singleton).
+- `Clustergram.ipynb` – creating Clustergrams in Python. (Credits: Prof Alex Singleton)
 
 ### Data
 List of folders (subfolders & files) in the project:
