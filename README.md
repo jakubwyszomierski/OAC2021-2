@@ -18,7 +18,7 @@ Creation of the **2021/2 Output Area Classification**
 ### Data
 List of folders (subfolders & files) in the project:
 
-- **API** - Census data downloadded and saved with use of `nomisr` package.
+- **API** - Census data downloaded and saved with use of `nomisr` package.
 - **Clean** – amalgamated data ready for the analysis.
   - Raw_counts - datasets with raw counts
   - Percentages - datasets transformed into percentages
