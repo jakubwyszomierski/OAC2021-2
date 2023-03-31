@@ -17,18 +17,19 @@ Creation of the **2021/2 Output Area Classification**
 
 ### Data
 List of folders (subfolders & files) in the project:
+Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EsUvZLiQsa1At6ORGJgMTIkBUzQslS52lsgZe_MjhEw-CQ?e=2DkvGy)
 
 - **API** - Census data downloaded and saved with use of `nomisr` package.
-- **Clean** – amalgamated data ready for the analysis. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EsUvZLiQsa1At6ORGJgMTIkBUzQslS52lsgZe_MjhEw-CQ?e=2DkvGy)
+- **Clean** – amalgamated data ready for the analysis. 
   - Raw_counts - datasets with raw counts
   - Percentages - datasets transformed into percentages
   - Transformed - datasets transformed with IHS (analysis-ready)
   - Final_variables - datasets with OAC variables only
   - All_data_clustering - results of the clustering for all investigated datasets.
-- **Clustering** - datasets with cluster assignment for the UK and centroids. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EhLNiogo5IZHtH1NKikh8e4BaWhJoaTpOKek7vmEXY40Qg?e=meb4sI)
-- **Lookups** - reference tables for 2011 and 2021 Census variables. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EopoRyd87XpCjTWeVkQky-QBIIXWU4omlWYrTy9CA2a68g?e=aHy5I0)
-- **NISRA 2021** - 2021 Census data at LGD level for Northern Ireland. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EsNU1WxSz0pGkxG0OejUTD8Bz0uB7OOPWnjsLTmH-uiTjg?e=Hho4X7)
-- **SIR** – contingency tables on disability counts by age, utilised for calculation of Standardised Illness Ratio. [Download here](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EreqlG5R7-5PmVmDTdlAQ1YBwN1qZb-43FyTwPFksw2F7w?e=lzYp1B)
+- **Clustering** - datasets with cluster assignment for the UK and centroids. 
+- **Lookups** - reference tables for 2011 and 2021 Census variables.
+- **NISRA 2021** - 2021 Census data at LGD level for Northern Ireland. 
+- **SIR** – contingency tables on disability counts by age, utilised for calculation of Standardised Illness Ratio. 
 
 ### Plots
 
