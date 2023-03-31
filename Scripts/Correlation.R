@@ -37,6 +37,25 @@ Census_2021_IHS_Range = read.csv("Data/Clean/Transformed/Census_2021_common_var_
 Aged_Scotland_Range = read.csv("Data/Clean/Transformed/hybrid_UK_2021_aged_Scotland_prop_perc_IHS_range.csv")
 
 
+head(common_variables)
+
+### order of the variables
+intersect(common_variables$Code, names(Aged_Scotland_perc))
+
+original_variables = common_variables %>% filter(Code %in% intersect(common_variables$Code, names(Aged_Scotland_perc)), 
+                                               !is.na(CategoryCode11))
+original_variables$encoding = paste0("a", str_pad(c(1:nrow(original_variables)),3,pad="0"))
+
+
+Aged_Scotland_perc_original = Aged_Scotland_perc[,unique(original_variables$Code)]
+colnames(Aged_Scotland_perc_original) = original_variables$encoding 
+
+Census_2021_perc_original = Census_2021_perc[,unique(original_variables$Code)]
+colnames(Census_2021_perc_original) = original_variables$encoding 
+
+Census_2011_perc_original = Census_2011_perc[,unique(original_variables$Code)]
+colnames(Census_2011_perc_original) = original_variables$encoding 
+
 # 
 # 
 # Census_2011_oa_changed_perc = read.csv("Data/Clean/Census_2011_oa_changed.csv")
@@ -55,27 +74,29 @@ Aged_Scotland_Range = read.csv("Data/Clean/Transformed/hybrid_UK_2021_aged_Scotl
 
 
 ####    Transform to matrix
-Census_2011_perc_matrix <- as.matrix(data.frame(Census_2011_perc, row.names=1))
-Census_2021_perc_matrix <- as.matrix(data.frame(Census_2021_perc, row.names=1))
-Aged_Scotland_perc_matrix <- as.matrix(data.frame(Aged_Scotland_perc, row.names=1))
+Census_2011_perc_matrix <- as.matrix(data.frame(Census_2011_perc_original))
+Census_2021_perc_matrix <- as.matrix(data.frame(Census_2021_perc_original))
+Aged_Scotland_perc_matrix <- as.matrix(data.frame(Aged_Scotland_perc_original))
 
 
+Aged_Scotland_perc_matrix
 
 
+  
 ### Run correlation tests (and round to 6 decimal points, to avoid getting a floating point)
 Census_2011_cor_coef <-  round(rcorr(Census_2011_perc_matrix,  type="pearson")$r,6)
 Census_2011_cor_pval <-  round(rcorr(Census_2011_perc_matrix,  type="pearson")$P,6)
 
- 
- Census_2021_cor_coef <-  round(rcorr(Census_2021_perc_matrix,  type="pearson")$r,6)
- Census_2021_cor_pval <-  round(rcorr(Census_2021_perc_matrix,  type="pearson")$P,6)
- 
 
- 
+Census_2021_cor_coef <-  round(rcorr(Census_2021_perc_matrix,  type="pearson")$r,6)
+Census_2021_cor_pval <-  round(rcorr(Census_2021_perc_matrix,  type="pearson")$P,6)
+
+
+
 Aged_Scotland_cor_coef <-  round(rcorr(Aged_Scotland_perc_matrix,  type="pearson")$r,6)
 Aged_Scotland_cor_pval <-  round(rcorr(Aged_Scotland_perc_matrix,  type="pearson")$P,6)
- 
- 
+
+
 
 ### The p-value for che correlation between the same variables is NA (understandably, because it is the same variable)
 ### I will set it to 1 (the highest posssible value for p-value) so that the correlation plot deems the correlation insignificant
@@ -86,24 +107,26 @@ Aged_Scotland_cor_pval[is.na(Aged_Scotland_cor_pval)] = 1
 
 
 #### Correlation matrix for 2011 
-png(file="Plots/Correlations/Corrplot_Census_2011_all_vars.png", width = 3000, height=3000)
-corrplot(Census_2011_cor_coef, method="color", diag=F,
-         p.mat=Census_2011_cor_pval, sig.level = 0.05,insig = 'blank',
+png(file="Plots/Correlation/Corrplot_Census_2021_all_vars.png", width = 3000, height=3000)
+corrplot(Census_2021_cor_coef, method="color", diag=F,
+         p.mat=Census_2021_cor_pval, sig.level = 0.05,insig = 'blank',
          col = COL2('RdYlBu', 5), 
          cl.pos="b",cl.ratio=0.1, cl.cex = 4, 
-         tl.cex = 1.5, tl.col = "black") #%>% 
-  #corrRect(name = c((common_variables %>% distinct(TableName21, .keep_all=T))$encoding, paste0("r", nrow(final_codes))), lwd=12, col="black") 
+         tl.cex = 1.5, tl.col = "black") %>% 
+  corrRect(name = c((original_variables %>% distinct(TableName21, .keep_all=T))$encoding,
+                    paste0("a", nrow(original_variables))), lwd=12, col="black") 
 dev.off()
 
 
 #### CORRELATION MATRIX FOR AGED SCOTLAND ALL VARS
-png(file="Plots/Correlations/Corrplot_Aged_Scotland_all_vars.png", width = 3000, height=3000)
+png(file="Plots/Correlation/Corrplot_Aged_Scotland_all_vars.png", width = 3000, height=3000)
 corrplot(Aged_Scotland_cor_coef, method="color", diag=F,
-          p.mat=Census_2021_cor_pval, sig.level = 0.05,insig = 'blank',
+          p.mat=Aged_Scotland_cor_pval, sig.level = 0.05,insig = 'blank',
          col = COL2('RdYlBu', 5), 
          cl.pos="b",cl.ratio=0.1, cl.cex = 4, 
-         tl.cex = 1.5, tl.col = "black") %>% 
-  corrRect(name = c((final_codes %>% distinct(TableName21, .keep_all=T))$encoding, paste0("r", nrow(final_codes))), lwd=12, col="black") 
+         tl.cex = 1.5, tl.col = "black")  %>% 
+  corrRect(name = c((original_variables %>% distinct(TableName21, .keep_all=T))$encoding,
+                    paste0("a", nrow(original_variables))), lwd=12, col="black") 
 
 dev.off()
 
@@ -116,24 +139,52 @@ dev.off()
 ##############################################################################
 
 
-Aged_Scotland_perc_OAC_matrix <- Aged_Scotland_cor_coef[OAC_variables$Code, OAC_variables$Code]
-Aged_Scotland_cor_OAC_pval <- Aged_Scotland_cor_pval[OAC_variables$Code, OAC_variables$Code]
+####    Transform to matrix
 
-colnames(Aged_Scotland_perc_OAC_matrix) <- OAC_variables$encoding
-rownames(Aged_Scotland_perc_OAC_matrix) <- OAC_variables$encoding
-
-colnames(Aged_Scotland_cor_OAC_pval) <- OAC_variables$encoding
-rownames(Aged_Scotland_cor_OAC_pval) <- OAC_variables$encoding
+Census_2021_perc_OAC_matrix <- as.matrix(data.frame(Census_2021_perc[,OAC_variables$Code]))
+Aged_Scotland_perc_OAC_matrix <- as.matrix(data.frame(Aged_Scotland_perc[,OAC_variables$Code]))
 
 
-png(file="Plots/Correlations/Corrplot_Aged_Scotland_OAC_vars.png", width = 3000, height=3000)
-corrplot(Aged_Scotland_perc_OAC_matrix, method="color", diag=F,
+Census_2021_cor_OAC_coef <-  round(rcorr(Census_2021_perc_OAC_matrix,  type="pearson")$r,6)
+Census_2021_cor_OAC_pval <-  round(rcorr(Census_2021_perc_OAC_matrix,  type="pearson")$P,6)
+
+Aged_Scotland_cor_OAC_coef <-  round(rcorr(Aged_Scotland_perc_OAC_matrix,  type="pearson")$r,6)
+Aged_Scotland_cor_OAC_pval <-  round(rcorr(Aged_Scotland_perc_OAC_matrix,  type="pearson")$P,6)
+
+
+
+
+rownames(Aged_Scotland_cor_OAC_coef) <- colnames(Aged_Scotland_cor_OAC_coef) <- OAC_variables$encoding
+rownames(Aged_Scotland_cor_OAC_pval) <- colnames(Aged_Scotland_cor_OAC_pval) <- OAC_variables$encoding
+
+rownames(Census_2021_cor_OAC_coef) <- colnames(Census_2021_cor_OAC_coef) <- OAC_variables$encoding
+rownames(Census_2021_cor_OAC_pval) <- colnames(Census_2021_cor_OAC_pval) <- OAC_variables$encoding
+
+
+png(file="Plots/Correlation/Corrplot_Aged_Scotland_OAC_vars.png", width = 3000, height=3000)
+corrplot(Aged_Scotland_cor_OAC_coef, method="color", diag=F,
          p.mat=Aged_Scotland_cor_OAC_pval, sig.level = 0.05,insig = 'blank',
          col = COL2('RdYlBu', 5), 
          cl.pos="b",cl.ratio=0.1, cl.cex = 5, 
          tl.cex = 2.25, tl.col = "black") %>% 
-  corrRect(name=c((OAC_variables %>% distinct(TableName21, .keep_all = T))$encoding, OAC_variables[nrow(OAC_variables), "encoding"]), lwd=10, col="black")
+  corrRect(name=c((OAC_variables %>% distinct(TableName21, .keep_all = T))$encoding, 
+                  OAC_variables[nrow(OAC_variables), "encoding"]), lwd=10, col="black")
 dev.off()
+
+
+
+png(file="Plots/Correlation/Corrplot_Census_2021_OAC_vars.png", width = 3000, height=3000)
+corrplot(Census_2021_cor_OAC_coef, method="color", diag=F,
+         p.mat=Census_2021_cor_OAC_pval, sig.level = 0.05,insig = 'blank',
+         col = COL2('RdYlBu', 5), 
+         cl.pos="b",cl.ratio=0.1, cl.cex = 5, 
+         tl.cex = 2.25, tl.col = "black") %>% 
+  corrRect(name=c((OAC_variables %>% distinct(TableName21, .keep_all = T))$encoding, 
+                  OAC_variables[nrow(OAC_variables), "encoding"]), lwd=10, col="black")
+dev.off()
+
+
+
 
 
 
@@ -147,39 +198,43 @@ dev.off()
 #########     MERGE DATASETS ACROSS THE YEARS
 
 
-Census_both_oa_changed_perc = merge(Census_2011_oa_changed_perc, Census_2021_oa_changed_perc, by="Geography_Code", suffixes=c("_2011", "_2021"))
-Census_both_oa_changed_range =  merge(Census_2011_oa_changed_IHS_Range, Census_2021_oa_changed_IHS_Range, by="Geography_Code", suffixes=c("_2011", "_2021"))
+Census_both_perc = merge(Census_2011_perc, Census_2021_perc, by="Geography_Code", suffixes=c("_2011", "_2021"))
+Census_both_range =  merge(Census_2011_IHS_Range, Census_2021_IHS_Range, by="Geography_Code", suffixes=c("_2011", "_2021"))
 
 
 nrow(Census_both_oa_changed_perc)
 nrow(Census_both_oa_changed_range)
 
 #### Calculate correlation for each variable between the years
-Var_correlation_between_census = data.frame(encoding = colnames(Census_2011_oa_changed_perc)[-1], 
+Var_correlation_between_census = data.frame(Code = colnames(Census_2021_perc)[-1], 
                                             var_name=NA,  table=NA, cor_between_years=NA, pvalue = NA )
 
 
 
 
-for(c in unique(Var_correlation_between_census$encoding)){
-  cat("\r", c, " --- ", paste(match(c, unique(Var_correlation_between_census$encoding))), "out of", length(unique(Var_correlation_between_census$encoding)))
+for(c in unique(Var_correlation_between_census$Code)){
+  cat("\r", c, " --- ", paste(match(c, unique(Var_correlation_between_census$Code))), "out of", 
+      length(unique(Var_correlation_between_census$Code)))
   flush.console()
   
   
-  Var_correlation_between_census[Var_correlation_between_census$encoding==c,"var_name"] = final_codes[final_codes$encoding==c,"Name"]
-  Var_correlation_between_census[Var_correlation_between_census$encoding==c,"table"] = final_codes[final_codes$encoding==c,"TableName21"]
+  Var_correlation_between_census[Var_correlation_between_census$Code==c,"var_name"] = common_variables[common_variables$Code==c,"Name"]
+  Var_correlation_between_census[Var_correlation_between_census$Code==c,"table"] = common_variables[common_variables$Code==c,"TableName21"]
+
+  Var_correlation_between_census[Var_correlation_between_census$Code==c,"cor_between_years"] = round(cor.test(Census_both_perc[,paste0(c, "_2011")],
+                                                                                                              Census_both_perc[,paste0(c, "_2021")])$estimate,4)
   
-  Var_correlation_between_census[Var_correlation_between_census$encoding==c,"cor_between_years"] = round(cor.test(Census_both_oa_changed_perc[,paste0(c, "_2011")], Census_both_oa_changed_perc[,paste0(c, "_2021")])$estimate,4)
-  Var_correlation_between_census[Var_correlation_between_census$encoding==c,"pvalue"] = round(cor.test(Census_both_oa_changed_perc[,paste0(c, "_2011")], Census_both_oa_changed_perc[,paste0(c, "_2021")])$p.value, 4)
+  Var_correlation_between_census[Var_correlation_between_census$Code==c,"pvalue"] = round(cor.test(Census_both_perc[,paste0(c, "_2011")],
+                                                                                                   Census_both_perc[,paste0(c, "_2021")])$p.value, 4)
   
   #Var_correlation_between_census[Var_correlation_between_census$encoding==u,"ad_test_2011"] = round(nortest::ad.test(Census_2011_oa_changed_IHS_range[, u])$p.value, 6)
-  Var_correlation_between_census[Var_correlation_between_census$encoding==c,"ad_test_2021"] = round(nortest::ad.test(Census_2021_oa_changed_IHS_Range[, c])$p.value, 6)
+  Var_correlation_between_census[Var_correlation_between_census$Code==c,"ad_test_2021"] = round(nortest::ad.test(Census_2021_perc[, c])$p.value, 6)
   
   #Var_correlation_between_census[Var_correlation_between_census$encoding==u,"skewness_2011"] = moments::skewness(Census_2011_oa_changed_IHS_range[,u])
-  Var_correlation_between_census[Var_correlation_between_census$encoding==c,"skewness_2021"] = moments::skewness(Census_2021_oa_changed_IHS_Range[,c])
+  Var_correlation_between_census[Var_correlation_between_census$Code==c,"skewness_2021"] = moments::skewness(Census_2021_perc[,c])
   
  # Var_correlation_between_census[Var_correlation_between_census$encoding==u,"kurtosis_2011"] = moments::kurtosis(Census_2011_oa_changed_IHS_range[,u])
-  Var_correlation_between_census[Var_correlation_between_census$encoding==c,"kurtosis_2021"] = moments::kurtosis(Census_2021_oa_changed_IHS_Range[,c])
+  Var_correlation_between_census[Var_correlation_between_census$Code==c,"kurtosis_2021"] = moments::kurtosis(Census_2021_perc[,c])
   
 }
 
@@ -190,7 +245,7 @@ for(c in unique(Var_correlation_between_census$encoding)){
 
 #Var_correlation_between_census$diff = round((Var_correlation_between_census$cor_oa_changed - Var_correlation_between_census$cor) / Var_correlation_between_census$cor, 4)
 ### See the most extreme correlations across the years
-Var_correlation_between_census %>% filter(cor_between_years ==1 | cor_between_years<0.5) %>% arrange(encoding)
+Var_correlation_between_census %>% filter(cor_between_years ==1 | cor_between_years<0.5) %>% arrange(Code)
 # Var_correlation_between_census %>% arrange(encoding)
 
 
@@ -207,44 +262,23 @@ Var_correlation_between_census %>% filter(cor_between_years ==1 | cor_between_ye
 first_bg_col  = "grey85"
 second_bg_col = "grey93"
 
+dat = Var_correlation_between_census %>% filter(Code %in% unique(original_variables$Code))
+dat = merge(dat, original_variables %>% select(Code, encoding), by="Code")
+
+
+dat = Var_correlation_between_census %>% filter(Code %in% unique(OAC_variables$Code))
+dat = merge(dat, OAC_variables %>% select(Code, encoding), by="Code") %>% arrange(encoding)
+
 
 gg_var_cor_between_census =   
-  ggplot() + 
-  geom_col(Var_correlation_between_census[1:2,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[3:7,], mapping = aes(x=encoding, y=1),fill=second_bg_col, col=second_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[8:26,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[27:34,], mapping = aes(x=encoding, y=1),fill=second_bg_col, col=second_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[35,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[36:53,], mapping = aes(x=encoding, y=1),fill=second_bg_col, col=second_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[54:55,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[56:63,], mapping = aes(x=encoding, y=1),fill=second_bg_col, col=second_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[64:66,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[67:76,], mapping = aes(x=encoding, y=1),fill=second_bg_col, col=second_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[77:81,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[82:85,], mapping = aes(x=encoding, y=1),fill=second_bg_col, col=second_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[86:89,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[90:94,], mapping = aes(x=encoding, y=1),fill=second_bg_col, col=second_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[95:97,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[98:101,], mapping = aes(x=encoding, y=1),fill=second_bg_col, col=second_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[102:108,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[109:112,], mapping = aes(x=encoding, y=1),fill=second_bg_col, col=second_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[113:119,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[120:128,], mapping = aes(x=encoding, y=1),fill=second_bg_col, col=second_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[129:133,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[134:144,], mapping = aes(x=encoding, y=1),fill=second_bg_col, col=second_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[145:150,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[151:159,], mapping = aes(x=encoding, y=1),fill=second_bg_col, col=second_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[160:169,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[170:184,], mapping = aes(x=encoding, y=1),fill=second_bg_col, col=second_bg_col , width = 1)+
-  geom_col(Var_correlation_between_census[185:190,], mapping = aes(x=encoding, y=1),fill=first_bg_col, col=first_bg_col , width = 1)+
-    
- geom_col(Var_correlation_between_census %>% filter(encoding!="r123"), 
+  ggplot() +
+ geom_col(dat, 
           mapping=aes(x=encoding, y=cor_between_years,fill=cor_between_years),col="grey50",size=0.2) + 
-  geom_col(Var_correlation_between_census %>% filter(encoding=="r123") %>% mutate(cor_between_years=abs(cor_between_years)), 
-           mapping=aes(x=encoding, y=cor_between_years),fill="lightblue",col="grey50",size=0.2) + 
+#  geom_col(dat %>% mutate(cor_between_years=abs(cor_between_years)), 
+#           mapping=aes(x=Code, y=cor_between_years),fill="lightblue",col="grey50",size=0.2) + 
   coord_flip() +
   scale_fill_continuous(low="yellow", high="#ff293b", name="", limits=c(0, 1)) + 
-  scale_x_discrete( breaks = Var_correlation_between_census$encoding[seq(1,length(Var_correlation_between_census$encoding), by=2)]) + 
+ # scale_x_discrete( breaks = dat$encoding[seq(1,length(dat$encoding), by=10)]) + 
   geom_hline(yintercept=0.25, linetype="dashed", color = "grey45", size=0.6, alpha=0.7)+
   geom_hline(yintercept=0.5,  linetype="dashed", color = "grey45", size=0.6, alpha=0.7)+
   geom_hline(yintercept=0.75, linetype="dashed", color = "grey45", size=0.6, alpha=0.7)+
@@ -259,7 +293,7 @@ gg_var_cor_between_census =
   
 
 gg_var_cor_between_census
-ggsave(gg_var_cor_between_census,file="Plots/gg_var_cor_between_census.png", 
+ggsave(gg_var_cor_between_census,file="Plots/Correlation/Correlation_between_all_OAC_variavbles.png", 
        width=210, height=297, units = "mm", dpi=600)
 
 
@@ -270,11 +304,11 @@ ggsave(gg_var_cor_between_census,file="Plots/gg_var_cor_between_census.png",
 
 
 ###################################################################################
-##############        ANAALYSE CORRELATION BETWEEN AGEGROUPS        ###############
+##############        ANALYSE CORRELATION BETWEEN AGEGROUPS        ###############
 ###################################################################################
 
 
-age_codes = (final_codes %>% filter(TableName21=="Age by five-year age bands"))$encoding 
+age_codes = ((common_variables %>% filter(TableName21=="Age structure"))$Code)[-1]
 ages_between_years = data.frame(variable2011 = age_codes[1:16], variable2021=age_codes[3:18], correlation=NA, p.value=NA)
 
 
@@ -282,13 +316,15 @@ for(i in 1:nrow(ages_between_years)){
   var1 = paste0(ages_between_years[i,"variable2011"], "_2011")
   var2 = paste0(ages_between_years[i,"variable2021"], "_2021")
   
-  ages_between_years[i, "correlation"] =  round(cor.test(Census_both_oa_changed_perc[,var1], Census_both_oa_changed_perc[,var2])$estimate,2)
-  ages_between_years[i, "p.value"] =  round(cor.test(Census_both_oa_changed_perc[,var1], Census_both_oa_changed_perc[,var2])$p.value,4)
+  ages_between_years[i, "correlation"] =  round(cor.test(Census_both_perc[,var1], Census_both_perc[,var2])$estimate,2)
+  ages_between_years[i, "p.value"] =  round(cor.test(Census_both_perc[,var1], Census_both_perc[,var2])$p.value,4)
 }
+ages_between_years$id = 1:nrow(ages_between_years)
 
-ages_between_years = merge(ages_between_years, final_codes %>% select(encoding, Name), by.x="variable2011", by.y="encoding")
-ages_between_years = merge(ages_between_years, final_codes %>% select(encoding, Name), by.x="variable2021", by.y="encoding")
-ages_between_years = ages_between_years %>% rename(Variable2011 = Name.x, Variable2021=Name.y) %>% select(Variable2011, Variable2021, correlation, p.value)
+ages_between_years = merge(ages_between_years, common_variables %>% select(Code, Name), by.x="variable2011", by.y="Code")
+ages_between_years = merge(ages_between_years, common_variables %>% select(Code, Name), by.x="variable2021", by.y="Code")
+ages_between_years = ages_between_years %>% rename(Variable2011 = Name.x, Variable2021=Name.y) %>% arrange(id)  %>% 
+  select(Variable2011, Variable2021, correlation, p.value, id)
 
 
 
@@ -328,11 +364,11 @@ under_threshold_2021 = correlation_matrix_long_2021 %>% filter(value>0.6 | value
 
 
 ### Retrieve names of the variables 
-under_threshold_2011$Name1 = final_codes[under_threshold_2011$Var1,"Name" ]
-under_threshold_2011$Name2 = final_codes[under_threshold_2011$Var2,"Name" ]
+under_threshold_2011$Name1 = common_variables[under_threshold_2011$Var1,"Name" ]
+under_threshold_2011$Name2 = common_variables[under_threshold_2011$Var2,"Name" ]
 
-under_threshold_2021$Name1 = final_codes[under_threshold_2021$Var1,"Name" ]
-under_threshold_2021$Name2 = final_codes[under_threshold_2021$Var2,"Name" ]
+under_threshold_2021$Name1 = common_variables[under_threshold_2021$Var1,"Name" ]
+under_threshold_2021$Name2 = common_variables[under_threshold_2021$Var2,"Name" ]
 
 
 
@@ -353,7 +389,7 @@ under_threshold_2011_var_count = merge(under_threshold_2011 %>% group_by(Var1) %
 
 under_threshold_2011_var_count[is.na(under_threshold_2011_var_count)] = 0
 under_threshold_2011_var_count = under_threshold_2011_var_count %>% mutate(n_all = n.x+n.y) %>% arrange(desc(n_all))
-under_threshold_2011_var_count = merge(under_threshold_2011_var_count, final_codes, by.x="Var1", by.y="encoding") %>% 
+under_threshold_2011_var_count = merge(under_threshold_2011_var_count, original_variables, by.x="Var1", by.y="encoding") %>% 
   arrange(desc(n_all), TableName21) %>% select(Var1,n_all, Name, TableName21)
 
 
@@ -363,7 +399,7 @@ under_threshold_2021_var_count = merge(under_threshold_2021 %>% group_by(Var1) %
                                        by.x="Var1",by.y="Var2", all=T)
 under_threshold_2021_var_count[is.na(under_threshold_2021_var_count)] = 0
 under_threshold_2021_var_count = under_threshold_2021_var_count %>% mutate(n_all = n.x+n.y)
-under_threshold_2021_var_count = merge(under_threshold_2021_var_count, final_codes, by.x="Var1", by.y="encoding") %>% 
+under_threshold_2021_var_count = merge(under_threshold_2021_var_count, original_variables, by.x="Var1", by.y="encoding") %>% 
   arrange(desc(n_all), TableName21) %>% select(Var1,n_all, Name, TableName21)
 
 
@@ -377,23 +413,26 @@ under_threshold_between_census_var_count = under_threshold_between_census_var_co
 colnames(under_threshold_between_census_var_count) = c("Var1", "H_cor_both", "H_cor_2011", "H_cor_2021")
 
 
-under_threshold_between_census_var_count = merge(under_threshold_between_census_var_count, final_codes, by.x="Var1", by.y="encoding") %>% 
+under_threshold_between_census_var_count = merge(under_threshold_between_census_var_count, original_variables, by.x="Var1", by.y="encoding") %>% 
   arrange(desc(H_cor_both))  %>% select(Var1,H_cor_both,H_cor_2011, H_cor_2021, Name, TableName21)
 
 
 
 
 
-choosing_variables = merge(Var_correlation_between_census, under_threshold_between_census_var_count, by.x="encoding", by.y="Var1", all=T) %>% 
-  select(encoding, var_name, table, cor_between_years,pvalue, ad_test_2021, skewness_2021, kurtosis_2021, H_cor_both, H_cor_2011, H_cor_2021) 
-
-choosing_variables[is.na(choosing_variables)] = 0
+#choosing_variables = merge(Var_correlation_between_census, original_variables, by.x="encoding", by.y="Var1", all=T) %>% 
+#  select(encoding, var_name, table, cor_between_years,pvalue, ad_test_2021, skewness_2021, kurtosis_2021, H_cor_both, H_cor_2011, H_cor_2021) 
+#
+#choosing_variables[is.na(choosing_variables)] = 0
 
 
 ###### MAPS FOR POORLY CORRELATED VARIABLES
 
 
-saveRDS(choosing_variables, "choosing_variables.RData")
+#saveRDS(choosing_variables, "choosing_variables.RData")
+
+
+
 
 ##################################################################################################
 ######################        STATISTICAL DISTRIBUTION OF VARIABLES           #####################
