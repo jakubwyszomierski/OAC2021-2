@@ -27,16 +27,8 @@ Aged_Scotland_OAC = read.csv("Data/Clean/Final_variables/Aged_Scotland.csv") %>%
 
 
 Input_data = Aged_Scotland_OAC
-
-
-#source("~/Desktop/PhD/GIT/OAC2021/Scripts/Industry.R")
-#Input_data = merge(Aged_Scotland_OAC, Industry_transformed, by="Geography_Code", all=T)
-#summary(Input_data)
-#Input_data = Input_data  %>% select(-OAC_variables[OAC_variables$TableName21=="Occupation","encoding"])
-#
 rownames(Input_data) = Input_data$Geography_Code
-Input_data = Input_data[, -1]
-setwd("~/Desktop/PhD/GIT/OAC2021/")
+Input_data = Input_data[, OAC_variables$encoding]
 
 fit=NA
 OAC_Supergroups_clustering=ls()
@@ -46,7 +38,7 @@ for (i in 1:2000){
     cat("\r", i)
     flush.console()
     
-    clustering <- kmeans(x=Input_data, centers=7, iter.max=1000000, nstart=1)
+    clustering <- kmeans(x=Input_data, centers=8, iter.max=1000000, nstart=1)
     
     fit[i] <- clustering$tot.withinss
     
@@ -55,12 +47,8 @@ for (i in 1:2000){
     }
 }
   
-# saveRDS(OAC_Supergroups_clustering, "Data/Clustering/OAC_7_Supergroups_clustering.RDS")
-# saveRDS(OAC_Supergroups_clustering, "Data/Clustering/OAC_8_Supergroups_clustering_Industry_2k.RDS")
+# saveRDS(OAC_Supergroups_clustering, "Data/Clustering/OAC_Supergroups_clustering.RDS")
 OAC_Supergroups_clustering = readRDS("Data/Clustering/OAC_Supergroups_clustering.RDS")
-
-
-
 
 
 Aged_Scotland_clusters = cbind(Aged_Scotland_OAC, OAC_Supergroups_clustering$cluster)

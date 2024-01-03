@@ -22,24 +22,6 @@ options( digits=5, max.print = 1000)
 
 all_variable_codes = read.csv("Data/Lookups/All_variable_codes.csv") %>% select(-CategoryCode11) %>% arrange(TS_code, TableCode)
 OAC_variables = read.csv("Data/Lookups/OAC_variables.csv")
-
- OAC_variables[c(
-  12:18, 8:11, 20:27, 29:32,#Demographic
-  2:7,28, #household composition
-  1, 19,35:38,42:44, 40:41, #housing
-  33:34, 39, 58:60, #socio economic
-  45:57),"encoding"] <-   paste0("v", str_pad(c(1:60),2,pad="0"))
-
- OAC_variables = OAC_variables %>% dplyr::arrange(encoding)
-
- OAC_variables[1:23, "Domain"] <- "Demographic"
- OAC_variables[24:30, "Domain"] <- "Household composition"
- OAC_variables[31:41, "Domain"] <- "Housing"
- OAC_variables[42:47, "Domain"] <- "Socio-economic"
- OAC_variables[48:60, "Domain"] <- "Employment"
- 
-head(OAC_variables)
-
 common_variables = read.csv("Data/Lookups/common_variables.csv")
 
 #Census_2011 = read.csv("Data/Clean/Census_2011_OA.csv")
@@ -220,9 +202,9 @@ Census_both_perc = merge(Census_2011_perc, Census_2021_perc, by="Geography_Code"
 Census_both_range =  merge(Census_2011_IHS_Range, Census_2021_IHS_Range, by="Geography_Code", suffixes=c("_2011", "_2021"))
 
 
-# nrow(Census_both_oa_changed_perc)
-# nrow(Census_both_oa_changed_range)
-# 
+nrow(Census_both_oa_changed_perc)
+nrow(Census_both_oa_changed_range)
+
 #### Calculate correlation for each variable between the years
 Var_correlation_between_census = data.frame(Code = colnames(Census_2021_perc)[-1], 
                                             var_name=NA,  table=NA, cor_between_years=NA, pvalue = NA )
@@ -285,41 +267,33 @@ dat = merge(dat, original_variables %>% select(Code, encoding), by="Code")
 
 
 dat = Var_correlation_between_census %>% filter(Code %in% unique(OAC_variables$Code))
-  dat = merge(dat, OAC_variables %>% select(Code, encoding), by="Code") %>% arrange(encoding)
+dat = merge(dat, OAC_variables %>% select(Code, encoding), by="Code") %>% arrange(encoding)
 
 
 gg_var_cor_between_census =   
   ggplot() +
- geom_col(dat %>% filter(cor_between_years>0), 
+ geom_col(dat, 
           mapping=aes(x=encoding, y=cor_between_years,fill=cor_between_years),col="grey50",size=0.2) + 
-geom_col(dat %>% filter(cor_between_years<0), 
-         mapping=aes(x=encoding, y=cor_between_years),fill="lightblue",col="grey50",size=0.2) + 
+#  geom_col(dat %>% mutate(cor_between_years=abs(cor_between_years)), 
+#           mapping=aes(x=Code, y=cor_between_years),fill="lightblue",col="grey50",size=0.2) + 
   coord_flip() +
- # scale_x_reverse() +
   scale_fill_continuous(low="yellow", high="#ff293b", name="", limits=c(0, 1)) + 
  # scale_x_discrete( breaks = dat$encoding[seq(1,length(dat$encoding), by=10)]) + 
   geom_hline(yintercept=0.25, linetype="dashed", color = "grey45", size=0.6, alpha=0.7)+
   geom_hline(yintercept=0.5,  linetype="dashed", color = "grey45", size=0.6, alpha=0.7)+
   geom_hline(yintercept=0.75, linetype="dashed", color = "grey45", size=0.6, alpha=0.7)+
   geom_hline(yintercept=1,    linetype="dashed", color = "grey45", size=0.6, alpha=0.7)+
-  scale_x_discrete(limits=rev)+
   labs(x="Variable", y="Correlation coefficient") +
   theme(axis.line = element_blank(),panel.background = element_blank(), 
         legend.text = element_text(size = 13), legend.title = element_text(size=15), 
-        axis.text.x = element_text(size=15),  axis.text.y = element_text(size=8),
+        axis.text.x = element_text(size=13),  axis.text.y = element_text(size=8),
         axis.title = element_text(size=15), legend.position = "bottom", 
         legend.key.height = unit(0.7, "cm"),  legend.key.width = unit(1,"cm"))
   
   
 
 gg_var_cor_between_census
-
-ggsave(gg_var_cor_between_census,file="Plots/Correlation/Correlation_between_all_census_variables.png", 
-       width=210, height=297, units = "mm", dpi=900)
-
-
-
-ggsave(gg_var_cor_between_census,file="Plots/Correlation/Correlation_between_all_OAC_variables.png", 
+ggsave(gg_var_cor_between_census,file="Plots/Correlation/Correlation_between_all_OAC_variavbles.png", 
        width=210, height=297, units = "mm", dpi=600)
 
 
@@ -344,9 +318,6 @@ for(i in 1:nrow(ages_between_years)){
   
   ages_between_years[i, "correlation"] =  round(cor.test(Census_both_perc[,var1], Census_both_perc[,var2])$estimate,2)
   ages_between_years[i, "p.value"] =  round(cor.test(Census_both_perc[,var1], Census_both_perc[,var2])$p.value,4)
-  
-
-  
 }
 ages_between_years$id = 1:nrow(ages_between_years)
 
@@ -359,12 +330,8 @@ ages_between_years = ages_between_years %>% rename(Variable2011 = Name.x, Variab
 
 
 
-plot(Census_both_perc[,var1], Census_both_perc[,var2])
 
-ggplot(Census_both_perc, aes(x=NM_2020_1_3_2011, y=NM_2020_1_5_2021)) + 
-  geom_point(alpha=0.1) +  
-  geom_smooth(method='lm', col="red", alpha=0.7) + 
-  theme_minimal()
+
 
 
 
@@ -473,6 +440,7 @@ under_threshold_between_census_var_count = merge(under_threshold_between_census_
 
 choosing_variables = readRDS("~/Desktop/PhD/GIT/OAC2021/choosing_variables.RData")
 
+summary(choosing_variables)
 
 
 # Census_2021_IHS_Range = read.csv("Data/Clean/Census_2021_IHS_Range_OA.csv")

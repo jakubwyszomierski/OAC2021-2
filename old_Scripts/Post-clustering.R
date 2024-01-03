@@ -27,48 +27,6 @@ Aged_Scotland_OAC = read.csv("Data/Clustering/OAC_assignment.csv")
 OAC_variables = read.csv("Data/Lookups/OAC_variables.csv")
 
 
-##### RE-ARRANGE DATA
-### new ORDER of OAC
-# OAC_variables$old_encoding <- OAC_variables$encoding
-
-new_encoding = c(
-# 1   2   3     4    5    6  7   8    9   10 
-12,  13,  14,  15,  16,  17, 18, 8,   9, 10,
-
-# 11    12     13     14     15      16     17    18      19    20
-11, 20,       21,     22,    23,     24,   25,    26,     27,    29,
-
-# 21    22      23    24      25     26      27   28      29    30
-30,    31,     32,    2,     3,      4,     5,    6,     7,     28,
-
-# 31     32     33    34      35    36     37    38      39      40
-1,      19,     35,   36,    37,    38,    44,  42,     43,     40,
-
-# 41     42      43      44      45      46      47      48      49      50
-41,     33,     34,      39,     58,     59,     60,     45,    46,      47,
-
-# 51     52      53      54      55      56      57      58      59    60
-48,      49,     50,     51,    52,    53,     54,    55,    56,     57)
-
-
-OAC_variables = OAC_variables[new_encoding,]
-rownames(OAC_variables) = 1:nrow(OAC_variables)
-OAC_variables = OAC_variables %>% mutate(old_encoding=encoding, encoding =paste0("v", str_pad(c(1:60), 2, pad="0")))
-
-
-
-### rearrange data
-
-head(Aged_Scotland_OAC)
-colnames(Aged_Scotland_OAC)[2:61] <-  (OAC_variables %>% arrange(old_encoding))$encoding
-Aged_Scotland_OAC = Aged_Scotland_OAC[,c("Geography_Code", paste0("v", str_pad(c(1:60), 2, pad="0")), "Supergroup8", "Group", "Subgroup")]
-
-
-
-
-
-
-OA_changes = read.csv("../../shapefiles/OA_2011_to_OA_2021.csv")
 OA_lookup = read.csv("~/Desktop/PhD/shapefiles/boundaries_2021/Lookup_2021.csv")
 OA_lookup_london = OA_lookup %>% filter(lad22nm %in% unique(OA_lookup$lad22nm)[1:33]) %>% select(oa21cd, lad22nm)
 
@@ -76,13 +34,7 @@ OA_lookup_london = OA_lookup %>% filter(lad22nm %in% unique(OA_lookup$lad22nm)[1
 ### PICK COLORS
 display.brewer.pal(8, "Set1")
 colors = brewer.pal(8, "Set1")
-
 OAC_colors = c('1' = colors[3], '2' = "#dbb6a2", '3' = colors[8], '4' = colors[2], '5' = colors[6], '6' = colors[5], '7'=colors[4], '8' = colors[1])
-
-### Ollie's colors
-
-#OAC_colors = c('1' = "#C9BC9D", '2' = "#68AD57", '3' = "#EA3323", '4' = "#E887BD", 
-#               '5' = "#EF8632", '6' = "#F7CD4C", '7'="#4A7CF7", '8' = "#8E529F")
 
 
 
@@ -147,79 +99,9 @@ dev.off()
 
 
 
-#############################################################################
-#################         COMPARISON WITH 2011          #####################
-#############################################################################
-
-OAC_2011 = read.csv("../OAC2011/2011OAC/Data/2011_OAC_Dataset/2011_OAC_Lookup.csv") %>% select(OA, SPRGRP, GRP, SUBGRP)
-colnames(OAC_2011) = c("Geography_Code", "Supergroup", "Group", "Subgroup")
-
-nrow(OAC_2011)
-OAC_2021 = Aged_Scotland_OAC %>% select(Geography_Code, Supergroup8, Group, Subgroup)
-
-#### analyse changed OAs
-### U - No change (175,466)
-### S - Split (2011 OA splint into two or more 2021 OAs) (12,661)
-### M - Merge (2011 OAs merged into one OA_2021) (1040)
-### X - irregular or fragmented relationship (redesignment of OAs) (397)
-
-OAC_changes = merge(OAC_2021, OAC_2011, by="Geography_Code", suffixes = c("_2021", "_2011")) %>% filter(grepl("E|W",Geography_Code))
-nrow(OAC_changes)
-
-OAC_2021_S = merge(OAC_2021, OA_changes %>% select(OA21CD, CHNGIND, OA11CD), by.x = "Geography_Code","OA21CD") %>% filter(CHNGIND=="S")
-OAC_2021_S = merge(OAC_2021_S, OAC_2011, by.y="Geography_Code", by.x="OA11CD", suffixes = c("_2021", "_2011")) %>% select(-OA11CD, -CHNGIND)
-head(OAC_2021_S)
 
 
 
-OAC_2011_M = merge(OAC_2011, OA_changes %>% select(OA21CD, CHNGIND, OA11CD), by.x = "Geography_Code","OA11CD") %>% filter(CHNGIND=="M")
-
-OAC_2011_M = merge(
-merge(OAC_2011_M %>% group_by(OA21CD) %>%
-  count(Supergroup, OA21CD) %>%
-  slice(which.max(n)) %>% select(-n),
-
-OAC_2011_M %>% group_by(OA21CD) %>%
-  count(Group, OA21CD) %>%
-  slice(which.max(n)) %>% select(-n), by = "OA21CD", all=T), 
-
-OAC_2011_M %>% group_by(OA21CD) %>%
-  count(Subgroup, OA21CD) %>%
-  slice(which.max(n)) %>% select(-n), by="OA21CD", all=T)
-
-
-
-#OAC_2011_M %>% filter(OA21CD=="E00176912")
-#
-#OAC_2011_M = OAC_2011_M %>% arrange(OA21CD) %>% group_by(OA21CD) %>% summarise(Supergroup = mode(Supergroup), 
-#                                                               Group = mode(Group), 
-#                                                               Subgroup = mode(Subgroup))
-
-OAC_2011_M = merge(OAC_2021, OAC_2011_M, by.x="Geography_Code", by.y="OA21CD", suffixes=c("_2021", "_2011"))
-
-
-
-
-head(OAC_changes)
-head(OAC_2011_M)
-head(OAC_2021_S)
-
-S_NI_changes=merge(OAC_2021, OAC_2011, by="Geography_Code", suffixes = c("_2021", "_2011")) %>% filter(!grepl("E|W",Geography_Code))
-changes = rbind(OAC_changes, OAC_2011_M, OAC_2021_S, S_NI_changes)
-
-nrow(changes)
-
-changes %>% group_by(Geography_Code) %>% mutate(n=n()) %>%filter(n>1)
-
-
-tab = table( changes$Supergroup8,changes$Supergroup,dnn = c("2021 OAC", "2011 OAC"))
-prop_tab = round(prop.table(tab, margin = 1),4)*100
-
-tab_Groups = table(changes$Group_2011, changes$Group_2021,dnn = c("2011 OAC", "2021 OAC"))
-prop_tab_Groups = round(prop.table(tab_Groups, margin = 1),4)*100
-
-tab_Subgroups = table(changes$Subgroup_2011, changes$Subgroup_2021,dnn = c("2011 OAC", "2021 OAC"))
-prop_tab_Subgroups = round(prop.table(tab_Subgroups, margin = 1),4)*100
 
 ###################################################################
 #################         BAR PLOTS           #####################
@@ -238,17 +120,7 @@ Global_Mean = Aged_Scotland_OAC[,OAC_variables$encoding] %>% summarise_all(mean)
 
 
 Supergroups_centers =  as.data.frame(OAC_Supergroups_clustering$centers)
-
-
-head(Supergroups_centers)
-colnames(Supergroups_centers) <-  (OAC_variables %>% arrange(old_encoding))$encoding
-Supergroups_centers = Supergroups_centers[,paste0("v", str_pad(c(1:60), 2, pad="0"))]
-
-
-
 Supergroups_centers$id = rownames(Supergroups_centers)
-
-### this is because the clusters have been renamed
 Supergroups_centers = Supergroups_centers %>% mutate(Supergroup8=recode(id,'1' = '8', 
                                                                        '2' = '5', 
                                                                        '3' = '3', 
@@ -284,7 +156,7 @@ for(reclass in unique(Supergroups_centers_diff$Supergroup8)){
     theme_minimal() +  theme(axis.text = element_text(size=13), axis.title.y = element_text(size=19),legend.position="none",
                              plot.title= element_text(hjust = 0.5, size=23), plot.margin = margin(1,1,1,1, "cm"))
   
- ggsave(filename=paste0("Plots/Bar_plots/Supergroups/Supergroup_",reclass, ".png"), gg_bar, bg = "white", width=20, height = 9)
+  ggsave(filename=paste0("Plots/Bar_plots/Supergroups/Supergroup_",reclass, ".png"), gg_bar, bg = "white", width=20, height = 9)
 }
 
 
@@ -292,33 +164,6 @@ write.csv(Supergroups_centers[,c(61,1:60)], "Data/Clustering/OAC_centroids.csv",
 
 
 
-
-for(reclass in unique(Supergroups_centers_diff$Supergroup8)){
-  
-  Supergroup_mean = Supergroups_centers_diff %>% filter(Supergroup8==reclass) %>% select(-Supergroup8)
-  
-  ### CREATE A BAR GRAPH
-  gg_bar = ggplot(data=pivot_longer(Supergroup_mean, cols=everything())) + geom_col(aes(y=value, x=name, fill=value)) + 
-    scale_x_discrete(labels=c(1:ncol(Global_Mean))) + 
-    scale_y_continuous(limits = c(min_change,max_change)) +  
-    labs(x="", y=paste("Supergroup", reclass, "\n"), title ="" #paste("Supergroup", reclass, "\n")
-         ) +  
-    scale_fill_gradient(limits=c(min_change,max_change), low = "blue", high="red", ) + 
-    theme_minimal() +  theme(
-     axis.text = element_text(size=21), axis.title.y = element_text(size=35, vjust = 0.5),
-      legend.position="none",
-     #                        plot.title= element_text(hjust = 0.5, size=23), 
-                             plot.margin = margin(0.2,0.2, 0.2, 0.8, "cm"))
-  
-  assign( paste0("gg", reclass),gg_bar)
- 
-  
-  
-  
-#  ggsave(filename=paste0("Plots/Bar_plots/Supergroups/Supergroup_",reclass, ".png"), gg_bar, bg = "white", width=20, height = 9)
-}
-
-ggsave(filename="~/Desktop/gg.png", ggarrange(gg1,gg2, gg3, gg4, gg5, gg6, gg7, gg8, ncol = 1), bg="white",width=27, height=43)
 
 
 
@@ -334,12 +179,6 @@ Groups_centroids = NULL
 for(i in 1:length(OAC_Groups_clustering)){
   
   Groups_cluster_centers = as.data.frame(OAC_Groups_clustering[[i]]$centers)
-  
-  head(Groups_cluster_centers)
-  colnames(Groups_cluster_centers) <-  (OAC_variables %>% arrange(old_encoding))$encoding
-  Groups_cluster_centers = Groups_cluster_centers[,paste0("v", str_pad(c(1:60), 2, pad="0"))]
-  
-  
   Groups_cluster_centers_diff = Groups_cluster_centers
   Groups_cluster_centers_diff_to_super = Groups_cluster_centers
   
@@ -420,11 +259,6 @@ Subgroup_centroids = NULL
    # sub_solution = solution
   
     Subgroups_cluster_centers = as.data.frame(OAC_Subgroups_clustering[[i]]$centers)
-    head(Subgroups_cluster_centers)
-    colnames(Subgroups_cluster_centers) <-  (OAC_variables %>% arrange(old_encoding))$encoding
-    Subgroups_cluster_centers = Subgroups_cluster_centers[,paste0("v", str_pad(c(1:60), 2, pad="0"))]
-    
-    
     Subgroups_cluster_centers_diff = Subgroups_cluster_centers
     Subgroups_cluster_centers_to_Supergroup = Subgroups_cluster_centers
     Subgroups_cluster_centers_to_Group = Subgroups_cluster_centers
@@ -615,26 +449,21 @@ write.csv(Subgroup_centroids, "Data/Clustering/OAC_Subgroups_centroids.csv", row
 Aged_shp = merge(hybrid_shp_simple, Aged_Scotland_OAC %>% select(-c(OAC_variables$encoding)), by="Geography_Code") 
 
 ### GET MAPS FOR LONDON
-#London_maps = st_read("~/Desktop/PhD/shapefiles/boundaries_2021/OA_2021/OA_2021_EW_BGC.shp")
+London_maps = st_read("~/Desktop/PhD/shapefiles/boundaries_2021/OA_2021/OA_2021_EW_BGC.shp")
 London_boroughs = st_read("~/Desktop/PhD/shapefiles/London_boundaries_2011/London_Borough_Excluding_MHW.shp")
 
 London_maps = Aged_shp %>% filter(Geography_Code %in% OA_lookup_london$oa21cd)
 group_colors = brewer.pal(5, "Set1")[-4]
 
 
-London_maps  = st_read("../../shapefiles/boundaries_2021/OA_2021/OA_2021_EW_BGC.shp") %>% 
-  mutate(country = substr(OA21CD,1,1)) %>% rename('Geography_Code' = 'OA21CD') %>%
-  select(Geography_Code, country, geometry) %>% filter(Geography_Code %in% OA_lookup_london$oa21cd)
 
-London_maps = merge(London_maps,Aged_Scotland_OAC %>% select(-c(OAC_variables$encoding)), by="Geography_Code")
-
-
-
-tm_shape(Aged_shp) + 
-   tm_fill(col="Supergroup8",  palette=group_colors, 
+tmap_mode("view")
+tm_shape(Aged_shp %>% filter(Subgroup=="4c2")) + 
+   tm_fill(col="Subgroup",  palette=group_colors, 
            alpha = 0.5,  colorNA = "grey90", legend.show = F) +
   tm_borders()+
   tm_layout(frame=F)
+tmap_mode("plot")
 
 
 
@@ -644,118 +473,17 @@ tm_shape(Aged_shp) +
 ########      SUPERGROUPS      #########
 ########################################
 
-Supergroups_names = data.frame(Supergroup=c(1:8), 
-                               Supergroup_name = c("Retired Professionals", 
-                                                   "Suburbanites and Peri-Urbanities", 
-                                                   "Multicultural and Educated Urbanities", 
-                                                   "Low-Skilled Migrant and Student Communities", 
-                                                   "Ethnically Diverse Suburban Professionals", 
-                                                   "Baseline UK", 
-                                                   "Semi- and Un-Skilled Workforce", 
-                                                   "Legacy Communities"))
-
-
-Groups_names = data.frame(Supergroup = substr(sort(unique(Aged_Scotland_OAC$Group)),1,1),
-                          Group = sort(unique(Aged_Scotland_OAC$Group)), 
-                          Group_name=c("Spacious Rural Living", "Small Town Suburbia", "Established Mature Familiies", 
-                                       "Inner Suburbs and Small Town Living", "Rural Amenity", "Ageing Communities", 
-                                       "Student Living and Professional Footholds", "Ethnically Diverse Young Families", 
-                                       "Diverse and Educated Urban Singles", 
-                                       "Ethnically Diverse Families in Less Connected Locations", "Established Multi-Ethnic Communities", 
-                                       "Challenged Multicultural Communities and Students", 
-                                       "Outer Suburbs", "Suburban Professionals",
-                                       "Challenged Communities", "Legacy Industrial and Coastal Communities", "Multicultural Inner Suburbs", 
-                                       "Established but Challenged", "Young Families in Industrial Towns",
-                                       "Routine Occupations or Retirement", "Legacy and Demographically Mixed Communities"))
-
-
-Subgroup_names = data.frame(Supergroup = substr(sort(unique(Aged_Scotland_OAC$Subgroup)),1,1), 
-                         Group = substr(sort(unique(Aged_Scotland_OAC$Subgroup)),1,2),
-                         Subgroup = sort(unique(Aged_Scotland_OAC$Subgroup)), 
-                         Subgroup_name = c("Pre-Retirement Spacious Living",
-                                           "Retirement Spacious Living",
-                                           "Younger Established Suburban Communities",
-                                           "Older Established Suburban Communities",
-                                           "Affluent Mature Families",
-                                           "Burgeoning Mature Families",
-                                           "Younger Suburban Family Renters",
-                                           "Settled Owner-Occupied Suburbs",
-                                           "Terraced Communities",
-                                           "Aging Rural Communities",
-                                           "Rural Mix",
-                                           "Communal Retirement Living",
-                                           "Ageing Independent Living", 
-                                           "University Centric",
-                                           "Professional Progression",
-                                           "Urbanite Mix",
-                                           "Affluent Graduate Living",
-                                           "Private Rental Ethnic Minority Families",
-                                           "Young Ethnic Minority Families",
-                                           "Centrally Located Professionals",
-                                           "Career Progression",
-                                           "Semi-Detached, Service Workers and Students",
-                                           "City Service Workers",
-                                           "Multi-Child Young Families",
-                                           "Multi-Generational Migrants", 
-                                           "European Skilled Workforce", 
-                                           "Inner Suburb Ethnic Group Mix",
-                                           "Ethnic Minority Routine Service Workers", 
-                                           "African and Asian Mix",
-                                           "European or Asian Heritage",
-                                           "Outer Suburb Asian Mix",
-                                           "Suburban Empty Nesters",
-                                           "Young Suburban Families", 
-                                           "Families in Multi-Ethnic Terraces",
-                                           "Established Multi-Ethnic Suburbs", 
-                                           "Suburban Housing Starters",
-                                           "Semi Detached Strivers", 
-                                           "Younger Ethnic Minority Families in Flats",
-                                           "Retired Seniors", 
-                                           "Traditional Terraces",
-                                           "EU Singles", 
-                                           "Transient Communities",
-                                           "Semi-Detached Family Renters",
-                                           "Ageing Established Urban Communities",
-                                           "Industry Associations",
-                                           "Terraces in Transitional Towns",
-                                           "Families and Later Life",
-                                           "Retirement Residences",
-                                           "Flats and Routine Occupations",
-                                           "Challenges Families",
-                                           "Retirement Pockets",
-                                           "Young Families and Neighbourhood Turnover"))
-
-countries = st_read("~/Desktop/PhD/shapefiles/Country_2011/infuse_ctry_2011.shp")
-head(countries)
-countries = countries %>% filter(geo_label %in% c("Scotland", "Northern Ireland"))
-
-countries_simple = st_simplify(countries, preserveTopology = TRUE, dTolerance = 30)
-object.size(countries_simple)
-tm_shape(countries_simple %>% filter(geo_label %in% c("Scotland", "Northern Ireland"))) + tm_borders()
-
-
-
-
 #### UK MAP
-tmap_save( tm_shape(Aged_shp) + 
-             tm_fill("Supergroup8",  alpha = 0.9, style = "cat", palette=OAC_colors, title="Supergroups", 
-                     labels =  Supergroups_names$Supergroup_name) +
-             tm_layout(frame=F, legend.position = c(0.02, 0.81), legend.text.size = 0.8, legend.width=1.2) + 
-             tm_shape(countries_simple) +# tm_fill(col="grey95", alpha = 0.4) + 
-             tm_borders(lwd = 0.9, col="grey40") + 
-             tm_scale_bar(position = c(0.03, 0.01), width = 0.15,breaks = c(0,40,80,120)) + 
-             tm_compass(position=c("right", "bottom"), size = 3),
-           
-          filename = paste0("Maps/Clustering/Aged_Scotland_OAC_boundary.png"), dpi = 1500)
+tmap_save(tm_shape(Aged_shp) + 
+            tm_fill("Supergroup8",  alpha = 0.9, style = "cat", palette=OAC_colors, title="Supergroups") +
+            tm_layout(frame=F, legend.position = c("left", "bottom")), 
+          filename = paste0("Maps/Clustering/Aged_Scotland_OAC.png"), dpi = 2500)
 
 ### LONDON MAP
 tmap_save(tm_shape(London_maps) + 
-            tm_fill("Supergroup8",  alpha = 0.9, style = "cat", palette=OAC_colors, title="Supergroups",
-                    labels =  Supergroups_names$Supergroup_nam) +
+            tm_fill("Supergroup8",  alpha = 0.9, style = "cat", palette=OAC_colors, colorNA = "grey94", title="Supergroups") +
             tm_shape(London_boroughs)  + tm_borders(col="grey45", lwd = 1.1) + 
-            tm_compass(position=c("right", "bottom"), size = 3)+
-            tm_scale_bar(position = c("left", "bottom")) + 
-            tm_layout(frame=F, legend.position = c(0.03, 0.825), legend.text.size = 0.55, legend.width=1.2, legend.title.size = 0.9), 
+            tm_layout(frame=F, legend.position = c("left", "bottom")), 
           filename = paste0("Maps/Clustering/London_OAC.png"), dpi = 2000)
 
 
@@ -765,31 +493,30 @@ tmap_save(tm_shape(London_maps) +
 
 
 ### SEPERATE CLUSTERS
-for(shp in c("Aged_shp", "London_maps")[1]){
+for(shp in c("Aged_shp", "London_maps")){
   print(shp)
   dat = get(shp)
   
 for(cluster in c(1:8)){
   print(cluster)
 
- Supergroup_label = paste0(cluster, " - ", Supergroups_names[Supergroups_names$Supergroup==cluster, "Supergroup_name"])
   
   tm_Supergroup = tm_shape(dat %>% mutate(Supergroup8 = as.factor(ifelse(Supergroup8==cluster, cluster, NA)))) + 
-    tm_fill("Supergroup8",  alpha = 0.9,palette = OAC_colors,colorNA = "grey86", legend.show = T, showNA = F, title="", 
-            labels=Supergroup_label) +
+    tm_fill("Supergroup8",  alpha = 0.9,palette = OAC_colors,colorNA = "grey90", legend.show = T, showNA = F, title="Supergroup") +
     tm_compass(position=c("right", "bottom"), size = 3) + 
-    tm_layout(frame=F, legend.position = c(0.08, 0.90), legend.text.size = 1) 
+    tm_layout(frame=F, legend.position = c("left", "bottom"))
+  
   
   if(shp=="London_maps"){
     tm_Supergroup = tm_Supergroup + tm_shape(London_boroughs) + tm_borders(col="grey45", lwd = 1.1) + 
-      tm_scale_bar(position = c("right", "bottom"),width = 0.15)+
-      tm_layout(frame=F, legend.position = c(0.02, 0.93), legend.text.size = 0.70)
+      tm_scale_bar(position = c("right", "bottom"),width = 0.15)
     save_name = "London_"
   } else{
     save_name="UK_"
   }
     
-  tmap_save(tm_Supergroup, filename = paste0("Maps/Clustering/Supergroups/",save_name,"Supergroup_", cluster, ".png"), dpi=1000)
+  tmap_save(tm_Supergroup, filename = paste0("Maps/Clustering/Supergroups/",save_name,"Supergroup_", cluster, ".png"), dpi=1700)
+
   
 }
 }
@@ -817,7 +544,7 @@ lighter_colors
 ########        GROUPS        #########
 #######################################
 
-for(shp in c("Aged_shp", "London_maps")[1]){
+for(shp in c("Aged_shp", "London_maps")){
   dat = get(shp)
 
 for(Reclass in c(1:8)){
@@ -836,28 +563,23 @@ for(Reclass in c(1:8)){
   # View the resulting lighter colors
   lighter_colors
   
-  Group_labels = paste0(Groups_names[Groups_names$Supergroup==Reclass, "Group"], " - ",Groups_names[Groups_names$Supergroup==Reclass, "Group_name"])
-
+  
   
      tm_Group <-  tm_shape(dat %>% mutate(Group = ifelse(Supergroup8==Reclass, Group, NA ))) + 
-              tm_fill(col="Group",  alpha = 0.9, style = "cat", palette=lighter_colors, colorNA = "grey86", 
-                      textNA = "Other Groups", labels=Group_labels
-                      # title=paste("Cluster ", Reclass), showNA = F
-                      ) +
-              tm_layout(frame=F, legend.position = c(0.04, 0.90), legend.text.size = 0.6, legend.height = 1.5, legend.width = 0.7) + 
-       tm_scale_bar(position = c(0.03, 0.01), width = 0.15,breaks = c(0,40,80,120)) + 
-       tm_compass(position=c("right", "bottom"), size = 3)
+              tm_fill(col="Group",  alpha = 0.9, style = "cat", palette=lighter_colors, colorNA = "grey94", 
+                      title=paste("Cluster ", Reclass), showNA = F) +
+              tm_layout(frame=F, legend.position = c("left", "bottom"))
   
                      if(shp=="London_maps"){
                        tm_Group = tm_Group + tm_shape(London_boroughs) + tm_borders(col="grey45", lwd = 1.1) + 
-                         tm_scale_bar(position = c("right", "bottom"),width = 0.15) +
-                         tm_layout(frame=F, legend.position = c(0.03, 0.9), legend.text.size = 0.55, legend.height = 1.5, legend.width = 0.7)
+                         tm_scale_bar(position = c("right", "bottom"),width = 0.15)
                        save_name = "London_"
                      } else{
                        save_name="UK_"
                      }
 
-     tmap_save(tm_Group, dpi = 1500, filename = paste0("Maps/Clustering/Groups/",save_name,"Groups_",Reclass ,".png"))
+     tmap_save(tm_Group, dpi = 1700,
+                                filename = paste0("Maps/Clustering/Groups/",save_name,"Groups_",Reclass ,".png"))
   
   }
 }
@@ -878,7 +600,7 @@ for(Reclass in c(1:8)){
 
 
 
-for(shp in c("Aged_shp", "London_maps")[1]){
+for(shp in c("Aged_shp", "London_maps")){
   dat= get(shp)
   
 
@@ -886,7 +608,7 @@ for(shp in c("Aged_shp", "London_maps")[1]){
   for(gr in sort(unique(dat$Supergroup8))){
   
 
-    print(gr)
+    
     ### SELECT THE VARIABLES BASED ON THE SOLUTION GROUP
 
 
@@ -912,24 +634,16 @@ for(shp in c("Aged_shp", "London_maps")[1]){
     # View the resulting lighter colors
     lighter_colors
     
-    Subgroup_labels = paste0(Subgroup_names[Subgroup_names$Supergroup==gr, "Subgroup"], " - ",Subgroup_names[Subgroup_names$Supergroup==gr, "Subgroup_name"])
     
     
               ### SAVE PREFFERED GROUP SOLUTION
               tm_Subgroup <-  tm_shape(dat %>% mutate(Subgroup = ifelse(Supergroup8==gr, Subgroup, NA ))) + 
-                tm_fill(col="Subgroup",  alpha = 0.9, style = "cat", palette=lighter_colors, colorNA = "grey86",
-                        labels=Subgroup_labels, textNA = "Other Subgroups", title = ""
-                        #title=paste("Group", gr), showNA = F,
-                        ) +
-                tm_layout(frame=F, legend.position = c(0.04, 0.84), 
-                          legend.text.size = 0.7, legend.height = 1.5, legend.width = 0.7) + 
-                tm_scale_bar(position = c(0.03, 0.01), width = 0.15,breaks = c(0,40,80,120)) + 
-                tm_compass(position=c("right", "bottom"), size = 3)
+                tm_fill(col="Subgroup",  alpha = 0.9, style = "cat", palette=lighter_colors, colorNA = "grey94", title=paste("Group", gr), showNA = F) +
+                tm_layout(frame=F, legend.position = c("left", "bottom"))
               
                         if(shp=="London_maps"){
                           tm_Subgroup = tm_Subgroup + tm_shape(London_boroughs) + tm_borders(col="grey45", lwd = 1.1) + 
-                            tm_scale_bar(position = c("right", "bottom"),width = 0.15) + 
-                            tm_layout(frame=F, legend.position = c(0.04, 0.83), legend.text.size = 0.5, legend.height = 1.5, legend.width = 0.7)
+                            tm_scale_bar(position = c("right", "bottom"),width = 0.15)
                           save_name = "London_"
                         } else{
                           save_name="UK_"
@@ -937,7 +651,7 @@ for(shp in c("Aged_shp", "London_maps")[1]){
               
               tmap_save(tm_Subgroup, 
                                          filename = paste0("Maps/Clustering/Subgroups/",
-                                                           save_name, gr, ".png"), dpi = 1500)
+                                                           save_name, gr, ".png"), dpi = 1700)
               
             }
     }
