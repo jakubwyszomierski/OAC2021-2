@@ -23,7 +23,7 @@ Creation of the **2021/2 Output Area Classification**
 List of folders (subfolders & files) in the project:
 
 - **API** - Census data downloaded and saved with use of `nomisr` package.
-- **Clean** – amalgamated data ready for the analysis. Downloadable via [this link] (https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/Eqd1EV2WgOFJmZ7kLx-oDYMBdxqNe9IJmli6M8S-e91F0g?e=M9wh5j).
+- **Clean** – amalgamated data ready for the analysis. Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/Eqd1EV2WgOFJmZ7kLx-oDYMBdxqNe9IJmli6M8S-e91F0g?e=M9wh5j).
   - Raw_counts - datasets with raw counts
   - Percentages - datasets transformed into percentages
   - Transformed - datasets transformed with IHS (analysis-ready)
