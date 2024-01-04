@@ -13,13 +13,17 @@ Creation of the **2021/2 Output Area Classification**
 - `Pre-clustering.R` - preparing data for clustering.
 - `Clustering.R` - clustering of the data.
 - `Post-clustering.R` - creating maps and plots of the cluster solution.
-- `Clustergram.ipynb` – creating Clustergrams in Python. (Credits: Prof Alex Singleton)
+- `Testing_clustering.R`
+- `Clustergrams.ipynb` – creating Clustergrams in Python. (Credits: Prof Alex Singleton)
+- `Industry.R` - loading Industry data
+- `Industry_classification.R` - creating geodemographic classification with Industry variables
+- `Graph_comparisons.R` - comparing data with graphs
 
 ### Data
 List of folders (subfolders & files) in the project:
 
 - **API** - Census data downloaded and saved with use of `nomisr` package.
-- **Clean** – amalgamated data ready for the analysis. 
+- **Clean** – amalgamated data ready for the analysis. Downloadable via [this link] (https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/Eqd1EV2WgOFJmZ7kLx-oDYMBdxqNe9IJmli6M8S-e91F0g?e=M9wh5j).
   - Raw_counts - datasets with raw counts
   - Percentages - datasets transformed into percentages
   - Transformed - datasets transformed with IHS (analysis-ready)
@@ -27,16 +31,17 @@ List of folders (subfolders & files) in the project:
   - All_data_clustering - results of the clustering for all investigated datasets.
 - **Clustering** - datasets with cluster assignment for the UK and centroids. 
 - **Lookups** - reference tables for 2011 and 2021 Census variables.
-- **NISRA 2021** - 2021 Census data at LGD level for Northern Ireland. 
+- **NISRA 2021** - 2021 Census data at LGD level for Northern Ireland.
+- **Objects** - R objects created and stored to ensure consistency of the results or load big files
 - **SIR** – contingency tables on disability counts by age, utilised for calculation of Standardised Illness Ratio. 
 
 ### Plots
 
-Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/Ejr-KcCj7qVIv4K6kTsH_90BlTw3kQvLsiP8P9k4Qjid5w?e=wEtlDz).
+Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/Egu6pw70wcVOs9zMgOTruTEBxPuS5AuZAppQNDAqklQrGw?e=iIZ26F).
 
 - Bar_plots - Comparison of clusters to the UK (as well as Supergroup and Group averages)
 - Clustergrams – plots used to establish number of clusters at each classification level. 
 
 ### Maps
 
-Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/El562C0yOhlBlPTIKM8qx88BUfxrJM8rd3k2KlYCUeTA4g?e=UF0tZi).
+Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EsJBp69rZBJAjPrURNU9sWABeO2g42xOu04XZYhY7jIGAw?e=OAI0E7).
