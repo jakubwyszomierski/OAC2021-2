@@ -1,0 +1,61 @@
+Code,Name,TS_code,TableName21,encoding
+NM_2021_1_2,Lives in a communal establishment,TS001,Residency type,v01
+NM_2022_1_1,Never married and never registered a civil partnership,TS002,Legal partnership status,v02
+NM_2022_1_1001,Married or in a registered civil partnership,TS002,Legal partnership status,v03
+separated_divorced,Separated or divorced,TS002,Legal partnership status,v04
+NM_2023_1_1001,One-person household,TS003,Household composition,v05
+no_children,Families with no children,TS003,Household composition,v06
+dependent_children,Families dependent children,TS003,Household composition,v07
+NM_2024_1_1,Europe: United Kingdom,TS004,Country of birth,v08
+NM_2024_1_1002,Europe: EU countries,TS004,Country of birth,v09
+NM_2024_1_1003,Europe: Non-EU countries,TS004,Country of birth,v10
+NM_2024_1_7,Africa,TS004,Country of birth,v11
+NM_2026_1_0,Usual residents per square kilometre,TS006,Population density,v12
+NM_2020_1_1,Aged 4 years and under,TS007A,Age structure,v13
+age_5_14,Aged 5 to 14,TS007A,Age structure,v14
+age_25_44,Aged 25 to 44,TS007A,Age structure,v15
+age_45_64,Aged 45 to 64,TS007A,Age structure,v16
+age_65_84,Aged 65 to 84,TS007A,Age structure,v17
+NM_2020_1_18,Aged 85 years and over,TS007A,Age structure,v18
+NM_2039_1_1,Same address year ago,TS019,Migrant Indicator,v19
+NM_2041_1_12,Bangladeshi,TS021,Ethnic group,v20
+NM_2041_1_13,Chinese,TS021,Ethnic group,v21
+NM_2041_1_10,Indian,TS021,Ethnic group,v22
+NM_2041_1_11,Pakistani,TS021,Ethnic group,v23
+NM_2041_1_14,Other Asian,TS021,Ethnic group,v24
+NM_2041_1_1002,Black,TS021,Ethnic group,v25
+NM_2041_1_1003,Mixed or Multiple ethnic groups,TS021,Ethnic group,v26
+NM_2041_1_1004,White,TS021,Ethnic group,v27
+NM_2042_1_2,All household members have the same ethnic group,TS023,Multiple ethnic group,v28
+cannot_speak_English,Cannot speak English well or at all,TS029,Proficiency in English,v29
+NM_2049_1_1,No religion,TS030,Religion,v30
+NM_2049_1_2,Christian,TS030,Religion,v31
+NM_2049_1_8,Other religion,TS030,Religion,v32
+SIR,Standardised Illness Ratio,TS038,Disability,v33
+provides_unpaid_care,Provides unpaid care,TS039,Provision of unpaid care,v34
+NM_1549_1_3,Detached,TS044,Accommodation type,v35
+NM_1549_1_4,Semi-detached,TS044,Accommodation type,v36
+NM_1549_1_5,Terraced (including end-terrace),TS044,Accommodation type,v37
+flat,Lives in a flat,TS044,Accommodation type,v38
+cars_2_or_more,Two or more cars or vans,TS045,Car or van availability,v39
+under_occupation,Under occupation,TS053,Occupancy rating for rooms,v40
+overcrowding,Overcrowding,TS053,Occupancy rating for rooms,v41
+NM_2072_1_1003,Social rented,TS054,Tenure,v42
+NM_2072_1_1004,Private rented,TS054,Tenure,v43
+ownership_or_shared,Ownership or shared ownership,TS054,Tenure,v44
+NM_2076_1_1001,Part-time,TS059,Hours worked,v45
+NM_2076_1_1002,Full-time,TS059,Hours worked,v46
+NM_2079_1_9,L15 Full-time students,TS062,NS-SeC,v47
+NM_2080_1_1,"1. Managers, directors and senior officials",TS063,Occupation,v48
+NM_2080_1_2,2. Professional occupations,TS063,Occupation,v49
+NM_2080_1_3,3. Associate professional and technical occupations,TS063,Occupation,v50
+NM_2080_1_4,4. Administrative and secretarial occupations,TS063,Occupation,v51
+NM_2080_1_5,5. Skilled trades occupations,TS063,Occupation,v52
+NM_2080_1_6,"6. Caring, leisure and other service occupations",TS063,Occupation,v53
+NM_2080_1_7,7. Sales and customer service occupations,TS063,Occupation,v54
+NM_2080_1_8,"8. Process, plant and machine operatives",TS063,Occupation,v55
+NM_2080_1_9,9. Elementary occupations,TS063,Occupation,v56
+NM_1565_1_8,Economically active: Unemployed,TS066,Economic activity status,v57
+level_1_2_and_appr,"Level 1, Level 2 or Apprenticeship",TS067,Highest level of qualification,v58
+NM_2084_1_5,Level 3 qualifications,TS067,Highest level of qualification,v59
+NM_2084_1_6,Level 4 qualifications or above,TS067,Highest level of qualification,v60

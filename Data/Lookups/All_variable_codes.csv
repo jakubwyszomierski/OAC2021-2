@@ -1,0 +1,542 @@
+"Code","Name","TableCode","TS_code","TableName21","CategoryCode11"
+"NM_1530_1_0","All categories: Residence type","NM_1530_1","TS001","Residency type",0
+"NM_2021_1_0","Total: All usual residents","NM_2021_1","TS001","Residency type",0
+"NM_1530_1_1","Lives in a household","NM_1530_1","TS001","Residency type",1
+"NM_2021_1_1","Lives in a household","NM_2021_1","TS001","Residency type",1
+"NM_1530_1_2","Lives in a communal establishment","NM_1530_1","TS001","Residency type",2
+"NM_2021_1_2","Lives in a communal establishment","NM_2021_1","TS001","Residency type",2
+"NM_1500_1_0","All usual residents aged 16+","NM_1500_1","TS002","Legal partnership status",0
+"NM_2022_1_0","Total: All usual residents aged 16 years and over","NM_2022_1","TS002","Legal partnership status",0
+"NM_1500_1_1","Single (never married or never registered a same-sex civil partnership)","NM_1500_1","TS002","Legal partnership status",1
+"NM_2022_1_1","Never married and never registered a civil partnership","NM_2022_1","TS002","Legal partnership status",1
+"NM_1500_1_2","Married","NM_1500_1","TS002","Legal partnership status",2
+"NM_2022_1_1001","Married or in a registered civil partnership","NM_2022_1","TS002","Legal partnership status",2
+"NM_1500_1_3","In a registered same-sex civil partnership","NM_1500_1","TS002","Legal partnership status",3
+"NM_1500_1_4","Separated (but still legally married or still legally in a same-sex civil partnership)","NM_1500_1","TS002","Legal partnership status",4
+"NM_1500_1_5","Divorced or formerly in a same-sex civil partnership which is now legally dissolved","NM_1500_1","TS002","Legal partnership status",5
+"NM_1500_1_6","Widowed or surviving partner from a same-sex civil partnership","NM_1500_1","TS002","Legal partnership status",6
+"NM_2022_1_1004","Separated, but still legally married or still legally in a civil partnership","NM_2022_1","TS002","Legal partnership status",4
+"NM_2022_1_1005","Divorced or civil partnership dissolved","NM_2022_1","TS002","Legal partnership status",5
+"NM_2022_1_1006","Widowed or surviving civil partnership partner","NM_2022_1","TS002","Legal partnership status",6
+"NM_1538_1_0","All categories: Household composition","NM_1538_1","TS003","Household composition",0
+"NM_1538_1_1","One person household: Total","NM_1538_1","TS003","Household composition",1
+"NM_1538_1_2","One person household: Aged 65 and over","NM_1538_1","TS003","Household composition",2
+"NM_1538_1_3","One person household: Other","NM_1538_1","TS003","Household composition",3
+"NM_1538_1_4","One family only: Total","NM_1538_1","TS003","Household composition",4
+"NM_1538_1_5","One family only: All aged 65 and over","NM_1538_1","TS003","Household composition",5
+"NM_1538_1_6","One family only: Married couple: Total","NM_1538_1","TS003","Household composition",6
+"NM_1538_1_7","One family only: Married couple: No children","NM_1538_1","TS003","Household composition",7
+"NM_1538_1_8","One family only: Married couple: One dependent child","NM_1538_1","TS003","Household composition",8
+"NM_1538_1_9","One family only: Married couple: Two or more dependent children","NM_1538_1","TS003","Household composition",9
+"NM_1538_1_10","One family only: Married couple: All children non-dependent","NM_1538_1","TS003","Household composition",10
+"NM_1538_1_11","One family only: Same-sex civil partnership couple: Total","NM_1538_1","TS003","Household composition",11
+"NM_2023_1_0","Total: All households","NM_2023_1","TS003","Household composition",0
+"NM_1538_1_12","One family only: Cohabiting couple: Total","NM_1538_1","TS003","Household composition",12
+"NM_2023_1_1001","One-person household","NM_2023_1","TS003","Household composition",1
+"NM_1538_1_13","One family only: Cohabiting couple: No children","NM_1538_1","TS003","Household composition",13
+"NM_2023_1_1","One-person household: Aged 66 years and over","NM_2023_1","TS003","Household composition",2
+"NM_1538_1_14","One family only: Cohabiting couple: One dependent child","NM_1538_1","TS003","Household composition",14
+"NM_2023_1_2","One-person household: Other","NM_2023_1","TS003","Household composition",3
+"NM_1538_1_15","One family only: Cohabiting couple: Two or more dependent children","NM_1538_1","TS003","Household composition",15
+"NM_2023_1_1002","Single family household","NM_2023_1","TS003","Household composition",4
+"NM_1538_1_16","One family only: Cohabiting couple: All children non-dependent","NM_1538_1","TS003","Household composition",16
+"NM_2023_1_3","Single family household: All aged 66 years and over","NM_2023_1","TS003","Household composition",5
+"NM_1538_1_17","One family only: Lone parent: Total","NM_1538_1","TS003","Household composition",17
+"NM_2023_1_1003","Single family household: Married or civil partnership couple","NM_2023_1","TS003","Household composition",6
+"NM_1538_1_18","One family only: Lone parent: One dependent child","NM_1538_1","TS003","Household composition",18
+"NM_2023_1_4","Single family household: Married or civil partnership couple: No children","NM_2023_1","TS003","Household composition",7
+"NM_1538_1_19","One family only: Lone parent: Two or more dependent children","NM_1538_1","TS003","Household composition",19
+"NM_2023_1_5","Single family household: Married or civil partnership couple: Dependent children","NM_2023_1","TS003","Household composition",8
+"NM_1538_1_20","One family only: Lone parent: All children non-dependent","NM_1538_1","TS003","Household composition",20
+"NM_2023_1_6","Single family household: Married or civil partnership couple: All children non-dependent","NM_2023_1","TS003","Household composition",10
+"NM_1538_1_21","Other household types: Total","NM_1538_1","TS003","Household composition",21
+"NM_2023_1_1004","Single family household: Cohabiting couple family","NM_2023_1","TS003","Household composition",12
+"NM_1538_1_22","Other household types: With one dependent child","NM_1538_1","TS003","Household composition",22
+"NM_2023_1_7","Single family household: Cohabiting couple family: No children","NM_2023_1","TS003","Household composition",13
+"NM_1538_1_23","Other household types: With two or more dependent children","NM_1538_1","TS003","Household composition",23
+"NM_2023_1_8","Single family household: Cohabiting couple family: With dependent children","NM_2023_1","TS003","Household composition",14
+"NM_1538_1_24","Other household types: All full-time students","NM_1538_1","TS003","Household composition",24
+"NM_2023_1_9","Single family household: Cohabiting couple family: All children non-dependent","NM_2023_1","TS003","Household composition",16
+"NM_1538_1_25","Other household types: All aged 65 and over","NM_1538_1","TS003","Household composition",25
+"NM_2023_1_1005","Single family household: Lone parent family","NM_2023_1","TS003","Household composition",17
+"NM_1538_1_26","Other household types: Other","NM_1538_1","TS003","Household composition",26
+"NM_2023_1_10","Single family household: Lone parent family: With dependent children","NM_2023_1","TS003","Household composition",18
+"NM_2023_1_11","Single family household: Lone parent family: All children non-dependent","NM_2023_1","TS003","Household composition",20
+"NM_2023_1_1007","Other household types","NM_2023_1","TS003","Household composition",21
+"NM_2023_1_13","Other household types: With dependent children","NM_2023_1","TS003","Household composition",22
+"NM_2023_1_14","Other household types: Other, including all full-time students and all aged 66 years and over","NM_2023_1","TS003","Household composition",24
+"NM_1544_1_0","All categories: Country of birth","NM_1544_1","TS004","Country of birth",0
+"NM_1544_1_1","Europe: Total","NM_1544_1","TS004","Country of birth",1
+"NM_1544_1_2","Europe: United Kingdom: Total","NM_1544_1","TS004","Country of birth",2
+"NM_2024_1_0","Total: All usual residents","NM_2024_1","TS004","Country of birth",0
+"NM_2024_1_1001","Europe","NM_2024_1","TS004","Country of birth",1
+"NM_1544_1_8","Europe: Channel Islands and Isle of Man","NM_1544_1","TS004","Country of birth",8
+"NM_2024_1_1","Europe: United Kingdom","NM_2024_1","TS004","Country of birth",2
+"NM_2024_1_1002","Europe: EU countries","NM_2024_1","TS004","Country of birth",11
+"NM_1544_1_11","Europe: Other Europe: EU Countries: Total","NM_1544_1","TS004","Country of birth",11
+"NM_2024_1_1003","Europe: Non-EU countries","NM_2024_1","TS004","Country of birth",8
+"NM_2024_1_7","Africa","NM_2024_1","TS004","Country of birth",20
+"NM_1544_1_17","Europe: Other Europe: Rest of Europe: Total","NM_1544_1","TS004","Country of birth",17
+"NM_2024_1_8","Middle East and Asia","NM_2024_1","TS004","Country of birth",30
+"NM_2024_1_9","The Americas and the Caribbean","NM_2024_1","TS004","Country of birth",45
+"NM_2024_1_10","Antarctica and Oceania (including Australasia) and Other","NM_2024_1","TS004","Country of birth",52
+"NM_1544_1_20","Africa: Total","NM_1544_1","TS004","Country of birth",20
+"NM_1544_1_30","Middle East and Asia: Total","NM_1544_1","TS004","Country of birth",30
+"NM_1544_1_45","The Americas and the Caribbean: Total","NM_1544_1","TS004","Country of birth",45
+"NM_1544_1_52","Antarctica and Oceania: Total","NM_1544_1","TS004","Country of birth",52
+"NM_2026_1_0","Usual residents per square kilometre","NM_2026_1","TS006","Population density",2
+"NM_160_1_2","Density (number of persons per hectare)","NM_160_1","TS006","Population density",2
+"NM_2020_1_0","Total","NM_2020_1","TS007A","Age structure",0
+"NM_2020_1_1","Aged 4 years and under","NM_2020_1","TS007A","Age structure",1
+"NM_2020_1_2","Aged 5 to 9 years","NM_2020_1","TS007A","Age structure",6
+"NM_1531_1_0","All categories: Age","NM_1531_1","TS007A","Age structure",0
+"NM_2020_1_3","Aged 10 to 14 years","NM_2020_1","TS007A","Age structure",11
+"NM_1531_1_1","Age under 1","NM_1531_1","TS007A","Age structure",1
+"NM_2020_1_4","Aged 15 to 19 years","NM_2020_1","TS007A","Age structure",16
+"NM_1531_1_2","Age 1","NM_1531_1","TS007A","Age structure",2
+"NM_2020_1_5","Aged 20 to 24 years","NM_2020_1","TS007A","Age structure",21
+"NM_1531_1_3","Age 2","NM_1531_1","TS007A","Age structure",3
+"NM_2020_1_6","Aged 25 to 29 years","NM_2020_1","TS007A","Age structure",26
+"NM_1531_1_4","Age 3","NM_1531_1","TS007A","Age structure",4
+"NM_2020_1_7","Aged 30 to 34 years","NM_2020_1","TS007A","Age structure",31
+"NM_1531_1_5","Age 4","NM_1531_1","TS007A","Age structure",5
+"NM_2020_1_8","Aged 35 to 39 years","NM_2020_1","TS007A","Age structure",36
+"NM_1531_1_6","Age 5","NM_1531_1","TS007A","Age structure",6
+"NM_2020_1_9","Aged 40 to 44 years","NM_2020_1","TS007A","Age structure",41
+"NM_1531_1_7","Age 6","NM_1531_1","TS007A","Age structure",7
+"NM_2020_1_10","Aged 45 to 49 years","NM_2020_1","TS007A","Age structure",46
+"NM_1531_1_8","Age 7","NM_1531_1","TS007A","Age structure",8
+"NM_2020_1_11","Aged 50 to 54 years","NM_2020_1","TS007A","Age structure",51
+"NM_1531_1_9","Age 8","NM_1531_1","TS007A","Age structure",9
+"NM_2020_1_12","Aged 55 to 59 years","NM_2020_1","TS007A","Age structure",56
+"NM_1531_1_10","Age 9","NM_1531_1","TS007A","Age structure",10
+"NM_2020_1_13","Aged 60 to 64 years","NM_2020_1","TS007A","Age structure",61
+"NM_1531_1_11","Age 10","NM_1531_1","TS007A","Age structure",11
+"NM_2020_1_14","Aged 65 to 69 years","NM_2020_1","TS007A","Age structure",66
+"NM_1531_1_12","Age 11","NM_1531_1","TS007A","Age structure",12
+"NM_2020_1_15","Aged 70 to 74 years","NM_2020_1","TS007A","Age structure",71
+"NM_1531_1_13","Age 12","NM_1531_1","TS007A","Age structure",13
+"NM_2020_1_16","Aged 75 to 79 years","NM_2020_1","TS007A","Age structure",76
+"NM_1531_1_14","Age 13","NM_1531_1","TS007A","Age structure",14
+"NM_2020_1_17","Aged 80 to 84 years","NM_2020_1","TS007A","Age structure",81
+"NM_1531_1_15","Age 14","NM_1531_1","TS007A","Age structure",15
+"NM_2020_1_18","Aged 85 years and over","NM_2020_1","TS007A","Age structure",86
+"NM_1531_1_16","Age 15","NM_1531_1","TS007A","Age structure",16
+"NM_1531_1_17","Age 16","NM_1531_1","TS007A","Age structure",17
+"NM_1531_1_18","Age 17","NM_1531_1","TS007A","Age structure",18
+"NM_1531_1_19","Age 18","NM_1531_1","TS007A","Age structure",19
+"NM_1531_1_20","Age 19","NM_1531_1","TS007A","Age structure",20
+"NM_1531_1_21","Age 20","NM_1531_1","TS007A","Age structure",21
+"NM_1531_1_22","Age 21","NM_1531_1","TS007A","Age structure",22
+"NM_1531_1_23","Age 22","NM_1531_1","TS007A","Age structure",23
+"NM_1531_1_24","Age 23","NM_1531_1","TS007A","Age structure",24
+"NM_1531_1_25","Age 24","NM_1531_1","TS007A","Age structure",25
+"NM_1531_1_26","Age 25","NM_1531_1","TS007A","Age structure",26
+"NM_1531_1_27","Age 26","NM_1531_1","TS007A","Age structure",27
+"NM_1531_1_28","Age 27","NM_1531_1","TS007A","Age structure",28
+"NM_1531_1_29","Age 28","NM_1531_1","TS007A","Age structure",29
+"NM_1531_1_30","Age 29","NM_1531_1","TS007A","Age structure",30
+"NM_1531_1_31","Age 30","NM_1531_1","TS007A","Age structure",31
+"NM_1531_1_32","Age 31","NM_1531_1","TS007A","Age structure",32
+"NM_1531_1_33","Age 32","NM_1531_1","TS007A","Age structure",33
+"NM_1531_1_34","Age 33","NM_1531_1","TS007A","Age structure",34
+"NM_1531_1_35","Age 34","NM_1531_1","TS007A","Age structure",35
+"NM_1531_1_36","Age 35","NM_1531_1","TS007A","Age structure",36
+"NM_1531_1_37","Age 36","NM_1531_1","TS007A","Age structure",37
+"NM_1531_1_38","Age 37","NM_1531_1","TS007A","Age structure",38
+"NM_1531_1_39","Age 38","NM_1531_1","TS007A","Age structure",39
+"NM_1531_1_40","Age 39","NM_1531_1","TS007A","Age structure",40
+"NM_1531_1_41","Age 40","NM_1531_1","TS007A","Age structure",41
+"NM_1531_1_42","Age 41","NM_1531_1","TS007A","Age structure",42
+"NM_1531_1_43","Age 42","NM_1531_1","TS007A","Age structure",43
+"NM_1531_1_44","Age 43","NM_1531_1","TS007A","Age structure",44
+"NM_1531_1_45","Age 44","NM_1531_1","TS007A","Age structure",45
+"NM_1531_1_46","Age 45","NM_1531_1","TS007A","Age structure",46
+"NM_1531_1_47","Age 46","NM_1531_1","TS007A","Age structure",47
+"NM_1531_1_48","Age 47","NM_1531_1","TS007A","Age structure",48
+"NM_1531_1_49","Age 48","NM_1531_1","TS007A","Age structure",49
+"NM_1531_1_50","Age 49","NM_1531_1","TS007A","Age structure",50
+"NM_1531_1_51","Age 50","NM_1531_1","TS007A","Age structure",51
+"NM_1531_1_52","Age 51","NM_1531_1","TS007A","Age structure",52
+"NM_1531_1_53","Age 52","NM_1531_1","TS007A","Age structure",53
+"NM_1531_1_54","Age 53","NM_1531_1","TS007A","Age structure",54
+"NM_1531_1_55","Age 54","NM_1531_1","TS007A","Age structure",55
+"NM_1531_1_56","Age 55","NM_1531_1","TS007A","Age structure",56
+"NM_1531_1_57","Age 56","NM_1531_1","TS007A","Age structure",57
+"NM_1531_1_58","Age 57","NM_1531_1","TS007A","Age structure",58
+"NM_1531_1_59","Age 58","NM_1531_1","TS007A","Age structure",59
+"NM_1531_1_60","Age 59","NM_1531_1","TS007A","Age structure",60
+"NM_1531_1_61","Age 60","NM_1531_1","TS007A","Age structure",61
+"NM_1531_1_62","Age 61","NM_1531_1","TS007A","Age structure",62
+"NM_1531_1_63","Age 62","NM_1531_1","TS007A","Age structure",63
+"NM_1531_1_64","Age 63","NM_1531_1","TS007A","Age structure",64
+"NM_1531_1_65","Age 64","NM_1531_1","TS007A","Age structure",65
+"NM_1531_1_66","Age 65","NM_1531_1","TS007A","Age structure",66
+"NM_1531_1_67","Age 66","NM_1531_1","TS007A","Age structure",67
+"NM_1531_1_68","Age 67","NM_1531_1","TS007A","Age structure",68
+"NM_1531_1_69","Age 68","NM_1531_1","TS007A","Age structure",69
+"NM_1531_1_70","Age 69","NM_1531_1","TS007A","Age structure",70
+"NM_1531_1_71","Age 70","NM_1531_1","TS007A","Age structure",71
+"NM_1531_1_72","Age 71","NM_1531_1","TS007A","Age structure",72
+"NM_1531_1_73","Age 72","NM_1531_1","TS007A","Age structure",73
+"NM_1531_1_74","Age 73","NM_1531_1","TS007A","Age structure",74
+"NM_1531_1_75","Age 74","NM_1531_1","TS007A","Age structure",75
+"NM_1531_1_76","Age 75","NM_1531_1","TS007A","Age structure",76
+"NM_1531_1_77","Age 76","NM_1531_1","TS007A","Age structure",77
+"NM_1531_1_78","Age 77","NM_1531_1","TS007A","Age structure",78
+"NM_1531_1_79","Age 78","NM_1531_1","TS007A","Age structure",79
+"NM_1531_1_80","Age 79","NM_1531_1","TS007A","Age structure",80
+"NM_1531_1_81","Age 80","NM_1531_1","TS007A","Age structure",81
+"NM_1531_1_82","Age 81","NM_1531_1","TS007A","Age structure",82
+"NM_1531_1_83","Age 82","NM_1531_1","TS007A","Age structure",83
+"NM_1531_1_84","Age 83","NM_1531_1","TS007A","Age structure",84
+"NM_1531_1_85","Age 84","NM_1531_1","TS007A","Age structure",85
+"NM_1531_1_86","Age 85","NM_1531_1","TS007A","Age structure",86
+"NM_1531_1_87","Age 86","NM_1531_1","TS007A","Age structure",87
+"NM_1531_1_88","Age 87","NM_1531_1","TS007A","Age structure",88
+"NM_1531_1_89","Age 88","NM_1531_1","TS007A","Age structure",89
+"NM_1531_1_90","Age 89","NM_1531_1","TS007A","Age structure",90
+"NM_1531_1_91","Age 90","NM_1531_1","TS007A","Age structure",91
+"NM_1531_1_92","Age 91","NM_1531_1","TS007A","Age structure",92
+"NM_1531_1_93","Age 92","NM_1531_1","TS007A","Age structure",93
+"NM_1531_1_94","Age 93","NM_1531_1","TS007A","Age structure",94
+"NM_1531_1_95","Age 94","NM_1531_1","TS007A","Age structure",95
+"NM_1531_1_96","Age 95","NM_1531_1","TS007A","Age structure",96
+"NM_1531_1_97","Age 96","NM_1531_1","TS007A","Age structure",97
+"NM_1531_1_98","Age 97","NM_1531_1","TS007A","Age structure",98
+"NM_1531_1_99","Age 98","NM_1531_1","TS007A","Age structure",99
+"NM_1531_1_100","Age 99","NM_1531_1","TS007A","Age structure",100
+"NM_1531_1_101","Age 100 and over","NM_1531_1","TS007A","Age structure",101
+"NM_2028_1_0","All persons","NM_2028_1","TS008","Sex",0
+"NM_2028_1_1","Female","NM_2028_1","TS008","Sex",2
+"NM_2028_1_2","Male","NM_2028_1","TS008","Sex",1
+"NM_1532_1_0","All persons","NM_1532_1","TS008","Sex",0
+"NM_1532_1_1","Males","NM_1532_1","TS008","Sex",1
+"NM_1532_1_2","Females","NM_1532_1","TS008","Sex",2
+"NM_2037_1_0","Total: All households","NM_2037_1","TS017","Household size",0
+"NM_2037_1_2","1 person in household","NM_2037_1","TS017","Household size",1
+"NM_2037_1_3","2 people in household","NM_2037_1","TS017","Household size",2
+"NM_2037_1_4","3 people in household","NM_2037_1","TS017","Household size",3
+"NM_2037_1_5","4 people in household","NM_2037_1","TS017","Household size",4
+"NM_2037_1_6","5 people in household","NM_2037_1","TS017","Household size",5
+"NM_2037_1_7","6 people in household","NM_2037_1","TS017","Household size",6
+"NM_2037_1_8","7 people in household","NM_2037_1","TS017","Household size",7
+"NM_2037_1_9","8 or more people in household","NM_2037_1","TS017","Household size",8
+"NM_1553_1_0","All categories: Household size","NM_1553_1","TS017","Household size",0
+"NM_1553_1_1","1 person in household","NM_1553_1","TS017","Household size",1
+"NM_1553_1_2","2 people in household","NM_1553_1","TS017","Household size",2
+"NM_1553_1_3","3 people in household","NM_1553_1","TS017","Household size",3
+"NM_1553_1_4","4 people in household","NM_1553_1","TS017","Household size",4
+"NM_1553_1_5","5 people in household","NM_1553_1","TS017","Household size",5
+"NM_1553_1_6","6 people in household","NM_1553_1","TS017","Household size",6
+"NM_1553_1_7","7 people in household","NM_1553_1","TS017","Household size",7
+"NM_1553_1_8","8 or more people in household","NM_1553_1","TS017","Household size",8
+"NM_2039_1_0","Total: All usual residents","NM_2039_1","TS019","Migrant Indicator",0
+"NM_2039_1_1","Address one year ago is the same as the address of enumeration","NM_2039_1","TS019","Migrant Indicator",1
+"NM_2039_1_3","Migrant from within the UK: Address one year ago was in the UK","NM_2039_1","TS019","Migrant Indicator",4
+"NM_2039_1_4","Migrant from outside the UK: Address one year ago was outside the UK","NM_2039_1","TS019","Migrant Indicator",5
+"NM_1287_1_0","All usual residents","NM_1287_1","TS019","Migrant Indicator",0
+"NM_1287_1_1","Lived at same address one year ago","NM_1287_1","TS019","Migrant Indicator",1
+"NM_1287_1_4","Migrants: Moved into the area from within the UK","NM_1287_1","TS019","Migrant Indicator",4
+"NM_1287_1_5","Migrants: Moved into the area from outside the UK","NM_1287_1","TS019","Migrant Indicator",5
+"NM_2041_1_0","Total: All usual residents","NM_2041_1","TS021","Ethnic group",0
+"NM_2041_1_12","Asian, Asian British or Asian Welsh: Bangladeshi","NM_2041_1","TS021","Ethnic group",6
+"NM_2041_1_13","Asian, Asian British or Asian Welsh: Chinese","NM_2041_1","TS021","Ethnic group",7
+"NM_2041_1_10","Asian, Asian British or Asian Welsh: Indian","NM_2041_1","TS021","Ethnic group",4
+"NM_2041_1_11","Asian, Asian British or Asian Welsh: Pakistani","NM_2041_1","TS021","Ethnic group",5
+"NM_2041_1_14","Asian, Asian British or Asian Welsh: Other Asian","NM_2041_1","TS021","Ethnic group",8
+"NM_2041_1_1002","Black, Black British, Black Welsh, Caribbean or African","NM_2041_1","TS021","Ethnic group",9
+"NM_2041_1_1003","Mixed or Multiple ethnic groups","NM_2041_1","TS021","Ethnic group",3
+"NM_2041_1_1004","White","NM_2041_1","TS021","Ethnic group",1
+"NM_2041_1_3","White: Gypsy or Irish Traveller","NM_2041_1","TS021","Ethnic group",2
+"NM_2041_1_1005","Other ethnic group","NM_2041_1","TS021","Ethnic group",10
+"NM_1504_1_0","All categories: Ethnic group","NM_1504_1","TS021","Ethnic group",0
+"NM_1504_1_1","White","NM_1504_1","TS021","Ethnic group",1
+"NM_1504_1_2","Gypsy / Traveller / Irish Traveller","NM_1504_1","TS021","Ethnic group",2
+"NM_1504_1_3","Mixed / Multiple ethnic group","NM_1504_1","TS021","Ethnic group",3
+"NM_1504_1_4","Asian / Asian British: Indian","NM_1504_1","TS021","Ethnic group",4
+"NM_1504_1_5","Asian / Asian British: Pakistani","NM_1504_1","TS021","Ethnic group",5
+"NM_1504_1_6","Asian / Asian British: Bangladeshi","NM_1504_1","TS021","Ethnic group",6
+"NM_1504_1_7","Asian / Asian British: Chinese","NM_1504_1","TS021","Ethnic group",7
+"NM_1504_1_8","Asian / Asian British: Other Asian","NM_1504_1","TS021","Ethnic group",8
+"NM_1504_1_9","Black / African / Caribbean / Black British","NM_1504_1","TS021","Ethnic group",9
+"NM_1504_1_10","Other Ethnic Group","NM_1504_1","TS021","Ethnic group",10
+"NM_2042_1_0","Total: All households","NM_2042_1","TS023","Multiple ethnic group",0
+"NM_2042_1_1","One-person household","NM_2042_1","TS023","Multiple ethnic group",1
+"NM_2042_1_2","All household members have the same ethnic group","NM_2042_1","TS023","Multiple ethnic group",2
+"NM_2042_1_3","Ethnic groups differ between generations but not within partnerships","NM_2042_1","TS023","Multiple ethnic group",3
+"NM_2042_1_4","Ethnic groups differ within partnerships","NM_2042_1","TS023","Multiple ethnic group",4
+"NM_2042_1_5","Any other combination of multiple ethnic identities","NM_2042_1","TS023","Multiple ethnic group",5
+"NM_1543_1_0","All categories: Multiple ethnic groups","NM_1543_1","TS023","Multiple ethnic group",0
+"NM_1543_1_1","One person household","NM_1543_1","TS023","Multiple ethnic group",1
+"NM_1543_1_2","All household members have the same ethnic group","NM_1543_1","TS023","Multiple ethnic group",2
+"NM_1543_1_3","Different ethnic groups between the generations only","NM_1543_1","TS023","Multiple ethnic group",3
+"NM_1543_1_4","Different ethnic groups within partnerships (whether or not different ethnic groups between generations)","NM_1543_1","TS023","Multiple ethnic group",4
+"NM_1543_1_5","Any other combination of multiple ethnic groups","NM_1543_1","TS023","Multiple ethnic group",5
+"NM_2048_1_0","Total: All usual residents aged 3 years and over","NM_2048_1","TS029","Proficiency in English",0
+"NM_2048_1_1","Main language is English (English or Welsh in Wales)","NM_2048_1","TS029","Proficiency in English",1
+"NM_2048_1_2","Main language is not English (English or Welsh in Wales): Can speak English very well","NM_2048_1","TS029","Proficiency in English",2
+"NM_2048_1_3","Main language is not English (English or Welsh in Wales): Can speak English well","NM_2048_1","TS029","Proficiency in English",3
+"NM_2048_1_4","Main language is not English (English or Welsh in Wales): Cannot speak English well","NM_2048_1","TS029","Proficiency in English",4
+"NM_2048_1_5","Main language is not English (English or Welsh in Wales): Cannot speak English","NM_2048_1","TS029","Proficiency in English",5
+"NM_526_1_0","All categories: Proficiency in English","NM_526_1","TS029","Proficiency in English",0
+"NM_526_1_1","Main language is English (English or Welsh in Wales)","NM_526_1","TS029","Proficiency in English",1
+"NM_526_1_2","Main language is not English (English or Welsh in Wales): Can speak English very well","NM_526_1","TS029","Proficiency in English",2
+"NM_526_1_3","Main language is not English (English or Welsh in Wales): Can speak English well","NM_526_1","TS029","Proficiency in English",3
+"NM_526_1_4","Main language is not English (English or Welsh in Wales): Cannot speak English well","NM_526_1","TS029","Proficiency in English",4
+"NM_526_1_5","Main language is not English (English or Welsh in Wales): Cannot speak English","NM_526_1","TS029","Proficiency in English",5
+"NM_2049_1_0","Total: All usual residents","NM_2049_1","TS030","Religion",0
+"NM_2049_1_1","No religion","NM_2049_1","TS030","Religion",8
+"NM_2049_1_2","Christian","NM_2049_1","TS030","Religion",1
+"NM_2049_1_3","Buddhist","NM_2049_1","TS030","Religion",2
+"NM_2049_1_4","Hindu","NM_2049_1","TS030","Religion",3
+"NM_2049_1_5","Jewish","NM_2049_1","TS030","Religion",4
+"NM_2049_1_6","Muslim","NM_2049_1","TS030","Religion",5
+"NM_2049_1_7","Sikh","NM_2049_1","TS030","Religion",6
+"NM_2049_1_8","Other religion","NM_2049_1","TS030","Religion",7
+"NM_2049_1_9","Not answered","NM_2049_1","TS030","Religion",9
+"NM_616_1_0","All categories: Religion","NM_616_1","TS030","Religion",0
+"NM_616_1_1","Christian","NM_616_1","TS030","Religion",1
+"NM_616_1_2","Buddhist","NM_616_1","TS030","Religion",2
+"NM_616_1_3","Hindu","NM_616_1","TS030","Religion",3
+"NM_616_1_4","Jewish","NM_616_1","TS030","Religion",4
+"NM_616_1_5","Muslim","NM_616_1","TS030","Religion",5
+"NM_616_1_6","Sikh","NM_616_1","TS030","Religion",6
+"NM_616_1_7","Other religion","NM_616_1","TS030","Religion",7
+"NM_616_1_8","No religion","NM_616_1","TS030","Religion",8
+"NM_616_1_9","Religion not stated","NM_616_1","TS030","Religion",9
+"NM_2055_1_0","Total: All usual residents","NM_2055_1","TS037","General health",0
+"NM_2055_1_1","Very good health","NM_2055_1","TS037","General health",1
+"NM_2055_1_2","Good health","NM_2055_1","TS037","General health",2
+"NM_2055_1_3","Fair health","NM_2055_1","TS037","General health",3
+"NM_2055_1_4","Bad health","NM_2055_1","TS037","General health",4
+"NM_2055_1_5","Very bad health","NM_2055_1","TS037","General health",5
+"NM_1546_1_0","All categories: General health","NM_1546_1","TS037","General health",0
+"NM_1546_1_1","Very good health","NM_1546_1","TS037","General health",1
+"NM_1546_1_2","Good health","NM_1546_1","TS037","General health",2
+"NM_1546_1_3","Fair health","NM_1546_1","TS037","General health",3
+"NM_1546_1_4","Bad health","NM_1546_1","TS037","General health",4
+"NM_1546_1_5","Very bad health","NM_1546_1","TS037","General health",5
+"NM_2056_1_0","Total: All usual residents","NM_2056_1","TS038","Disability",0
+"NM_2056_1_1","Disabled under the Equality Act: Day-to-day activities limited a lot","NM_2056_1","TS038","Disability",1
+"NM_2056_1_2","Disabled under the Equality Act: Day-to-day activities limited a little","NM_2056_1","TS038","Disability",2
+"NM_2056_1_1002","Not disabled under the Equality Act","NM_2056_1","TS038","Disability",3
+"NM_1547_1_0","All categories: Long-term health problem or disability","NM_1547_1","TS038","Disability",0
+"NM_1547_1_1","Day-to-day activities limited a lot","NM_1547_1","TS038","Disability",1
+"NM_1547_1_2","Day-to-day activities limited a little","NM_1547_1","TS038","Disability",2
+"NM_1547_1_3","Day-to-day activities not limited","NM_1547_1","TS038","Disability",3
+"NM_2057_1_0","Total: All usual residents aged 5 and over","NM_2057_1","TS039","Provision of unpaid care",0
+"NM_2057_1_1","Provides no unpaid care","NM_2057_1","TS039","Provision of unpaid care",1
+"NM_2057_1_101","Provides 19 hours or less unpaid care a week","NM_2057_1","TS039","Provision of unpaid care",2
+"NM_2057_1_102","Provides 20 to 49 hours unpaid care a week","NM_2057_1","TS039","Provision of unpaid care",3
+"NM_2057_1_6","Provides 50 or more hours unpaid care a week","NM_2057_1","TS039","Provision of unpaid care",4
+"NM_1545_1_0","All categories: Provision of unpaid care","NM_1545_1","TS039","Provision of unpaid care",0
+"NM_1545_1_1","Provides no unpaid care","NM_1545_1","TS039","Provision of unpaid care",1
+"NM_1545_1_2","Provides 1 to 19 hours unpaid care a week","NM_1545_1","TS039","Provision of unpaid care",2
+"NM_1545_1_3","Provides 20 to 49 hours unpaid care a week","NM_1545_1","TS039","Provision of unpaid care",3
+"NM_1545_1_4","Provides 50 or more hours unpaid care a week","NM_1545_1","TS039","Provision of unpaid care",4
+"NM_2062_1_0","Total: All households","NM_2062_1","TS044","Accommodation type",0
+"NM_2062_1_1","Detached","NM_2062_1","TS044","Accommodation type",3
+"NM_2062_1_2","Semi-detached","NM_2062_1","TS044","Accommodation type",4
+"NM_2062_1_3","Terraced","NM_2062_1","TS044","Accommodation type",5
+"NM_2062_1_4","In a purpose-built block of flats or tenement","NM_2062_1","TS044","Accommodation type",7
+"NM_2062_1_5","Part of a converted or shared house, including bedsits","NM_2062_1","TS044","Accommodation type",8
+"NM_2062_1_7","In a commercial building, for example, in an office building, hotel or over a shop","NM_2062_1","TS044","Accommodation type",9
+"NM_2062_1_8","A caravan or other mobile or temporary structure","NM_2062_1","TS044","Accommodation type",10
+"NM_1549_1_0","All categories: Accommodation type","NM_1549_1","TS044","Accommodation type",0
+"NM_1549_1_3","Unshared dwelling: Whole house or bungalow: Detached","NM_1549_1","TS044","Accommodation type",3
+"NM_1549_1_4","Unshared dwelling: Whole house or bungalow: Semi-detached","NM_1549_1","TS044","Accommodation type",4
+"NM_1549_1_5","Unshared dwelling: Whole house or bungalow: Terraced (including end-terrace)","NM_1549_1","TS044","Accommodation type",5
+"NM_1549_1_7","Unshared dwelling: Flat, maisonette or apartment: Purpose-built block of flats or tenement","NM_1549_1","TS044","Accommodation type",7
+"NM_1549_1_8","Unshared dwelling: Flat, maisonette or apartment: Part of a converted or shared house (including bed-sits)","NM_1549_1","TS044","Accommodation type",8
+"NM_1549_1_9","Unshared dwelling: Flat, maisonette or apartment: In commercial building","NM_1549_1","TS044","Accommodation type",9
+"NM_1549_1_10","Unshared dwelling: Caravan or other mobile or temporary structure","NM_1549_1","TS044","Accommodation type",10
+"NM_2063_1_0","Total: All households","NM_2063_1","TS045","Car or van availability",0
+"NM_2063_1_1","No cars or vans in household","NM_2063_1","TS045","Car or van availability",1
+"NM_2063_1_2","1 car or van in household","NM_2063_1","TS045","Car or van availability",2
+"NM_2063_1_3","2 cars or vans in household","NM_2063_1","TS045","Car or van availability",3
+"NM_2063_1_4","3 or more cars or vans in household","NM_2063_1","TS045","Car or van availability",4
+"NM_1508_1_0","All categories: Car or van availability","NM_1508_1","TS045","Car or van availability",0
+"NM_1508_1_1","No cars or vans in household","NM_1508_1","TS045","Car or van availability",1
+"NM_1508_1_2","1 car or van in household","NM_1508_1","TS045","Car or van availability",2
+"NM_1508_1_3","2 cars or vans in household","NM_1508_1","TS045","Car or van availability",3
+"NM_1508_1_4","3 cars or vans in household","NM_1508_1","TS045","Car or van availability",4
+"NM_1508_1_5","4 or more cars or vans in household","NM_1508_1","TS045","Car or van availability",5
+"NM_2064_1_0","Total: All households","NM_2064_1","TS046","Central heating",0
+"NM_2064_1_1","No central heating","NM_2064_1","TS046","Central heating",1
+"NM_2064_1_2","Mains gas only","NM_2064_1","TS046","Central heating",2
+"NM_2064_1_4","Electric only","NM_2064_1","TS046","Central heating",3
+"NM_2064_1_5","Oil only","NM_2064_1","TS046","Central heating",4
+"NM_2064_1_6","Wood only","NM_2064_1","TS046","Central heating",5
+"NM_2064_1_8","Renewable energy only","NM_2064_1","TS046","Central heating",6
+"NM_2064_1_12","Two or more types of central heating (including renewable energy)","NM_2064_1","TS046","Central heating",7
+"NM_1558_1_0","All categories: Type of central heating in household","NM_1558_1","TS046","Central heating",0
+"NM_1558_1_1","No central heating","NM_1558_1","TS046","Central heating",1
+"NM_1558_1_2","Gas central heating","NM_1558_1","TS046","Central heating",2
+"NM_1558_1_3","Electric (including storage heaters) central heating","NM_1558_1","TS046","Central heating",3
+"NM_1558_1_4","Oil central heating","NM_1558_1","TS046","Central heating",4
+"NM_1558_1_5","Solid fuel (for example wood, coal) central heating","NM_1558_1","TS046","Central heating",5
+"NM_1558_1_6","Other central heating","NM_1558_1","TS046","Central heating",6
+"NM_1558_1_7","Two or more types of central heating","NM_1558_1","TS046","Central heating",7
+"NM_2069_1_0","Total: All households","NM_2069_1","TS051","Number of rooms",0
+"NM_2069_1_1","1 room","NM_2069_1","TS051","Number of rooms",1
+"NM_2069_1_2","2 rooms","NM_2069_1","TS051","Number of rooms",2
+"NM_2069_1_3","3 rooms","NM_2069_1","TS051","Number of rooms",3
+"NM_2069_1_4","4 rooms","NM_2069_1","TS051","Number of rooms",4
+"NM_1554_1_0","All categories: Number of rooms","NM_1554_1","TS051","Number of rooms",0
+"NM_2069_1_5","5 rooms","NM_2069_1","TS051","Number of rooms",5
+"NM_1554_1_1","1 room","NM_1554_1","TS051","Number of rooms",1
+"NM_2069_1_6","6 rooms","NM_2069_1","TS051","Number of rooms",6
+"NM_1554_1_2","2 rooms","NM_1554_1","TS051","Number of rooms",2
+"NM_2069_1_7","7 rooms","NM_2069_1","TS051","Number of rooms",7
+"NM_1554_1_3","3 rooms","NM_1554_1","TS051","Number of rooms",3
+"NM_2069_1_8","8 rooms","NM_2069_1","TS051","Number of rooms",8
+"NM_1554_1_4","4 rooms","NM_1554_1","TS051","Number of rooms",4
+"NM_2069_1_9","9 or more rooms","NM_2069_1","TS051","Number of rooms",9
+"NM_1554_1_5","5 rooms","NM_1554_1","TS051","Number of rooms",5
+"NM_1554_1_6","6 rooms","NM_1554_1","TS051","Number of rooms",6
+"NM_1554_1_7","7 rooms","NM_1554_1","TS051","Number of rooms",7
+"NM_1554_1_8","8 rooms","NM_1554_1","TS051","Number of rooms",8
+"NM_1554_1_9","9 or more rooms","NM_1554_1","TS051","Number of rooms",9
+"NM_1555_1_0","All categories: Occupancy rating (rooms)","NM_1555_1","TS053","Occupancy rating for rooms",0
+"NM_1555_1_1","Occupancy rating (rooms) of +2 or more","NM_1555_1","TS053","Occupancy rating for rooms",1
+"NM_2071_1_0","Total: All households","NM_2071_1","TS053","Occupancy rating for rooms",0
+"NM_1555_1_2","Occupancy rating (rooms) of +1","NM_1555_1","TS053","Occupancy rating for rooms",2
+"NM_2071_1_1","Occupancy rating of rooms: +2 or more","NM_2071_1","TS053","Occupancy rating for rooms",1
+"NM_1555_1_3","Occupancy rating (rooms) of 0","NM_1555_1","TS053","Occupancy rating for rooms",3
+"NM_2071_1_2","Occupancy rating of rooms: +1","NM_2071_1","TS053","Occupancy rating for rooms",2
+"NM_1555_1_4","Occupancy rating (rooms) of -1","NM_1555_1","TS053","Occupancy rating for rooms",4
+"NM_2071_1_3","Occupancy rating of rooms: 0","NM_2071_1","TS053","Occupancy rating for rooms",3
+"NM_1555_1_5","Occupancy rating (rooms) of -2 or less","NM_1555_1","TS053","Occupancy rating for rooms",5
+"NM_2071_1_4","Occupancy rating of rooms: -1","NM_2071_1","TS053","Occupancy rating for rooms",4
+"NM_2071_1_5","Occupancy rating of rooms: -2 or less","NM_2071_1","TS053","Occupancy rating for rooms",5
+"NM_1552_1_0","All categories: Tenure","NM_1552_1","TS054","Tenure",0
+"NM_1552_1_1","Owned: Total","NM_1552_1","TS054","Tenure",1
+"NM_2072_1_0","Total: All households","NM_2072_1","TS054","Tenure",0
+"NM_1552_1_2","Owned: Owned outright","NM_1552_1","TS054","Tenure",2
+"NM_2072_1_1001","Owned","NM_2072_1","TS054","Tenure",1
+"NM_1552_1_3","Owned: Owned with a mortgage or loan","NM_1552_1","TS054","Tenure",3
+"NM_2072_1_1","Owned: Owns outright","NM_2072_1","TS054","Tenure",2
+"NM_1552_1_4","Shared ownership (part owned and part rented)","NM_1552_1","TS054","Tenure",4
+"NM_2072_1_2","Owned: Owns with a mortgage or loan","NM_2072_1","TS054","Tenure",3
+"NM_1552_1_5","Social rented: Total","NM_1552_1","TS054","Tenure",5
+"NM_2072_1_1002","Shared ownership","NM_2072_1","TS054","Tenure",4
+"NM_1552_1_6","Social rented: Rented from council (Local Authority)","NM_1552_1","TS054","Tenure",6
+"NM_1552_1_7","Social rented: Other social rented","NM_1552_1","TS054","Tenure",7
+"NM_2072_1_1003","Social rented","NM_2072_1","TS054","Tenure",5
+"NM_1552_1_8","Private rented: Total","NM_1552_1","TS054","Tenure",8
+"NM_2072_1_4","Social rented: Rents from council or Local Authority","NM_2072_1","TS054","Tenure",6
+"NM_1552_1_9","Private rented: Private landlord or letting agency","NM_1552_1","TS054","Tenure",9
+"NM_2072_1_5","Social rented: Other social rented","NM_2072_1","TS054","Tenure",7
+"NM_1552_1_10","Private rented: Employer of a household member","NM_1552_1","TS054","Tenure",10
+"NM_2072_1_1004","Private rented","NM_2072_1","TS054","Tenure",8
+"NM_1552_1_11","Private rented: Relative or friend of household member","NM_1552_1","TS054","Tenure",11
+"NM_2072_1_6","Private rented: Private landlord or letting agency","NM_2072_1","TS054","Tenure",9
+"NM_1552_1_12","Private rented: Other","NM_1552_1","TS054","Tenure",12
+"NM_2072_1_7","Private rented: Other private rented","NM_2072_1","TS054","Tenure",10
+"NM_1552_1_13","Living rent free","NM_1552_1","TS054","Tenure",13
+"NM_2072_1_8","Lives rent free","NM_2072_1","TS054","Tenure",13
+"NM_1567_1_0","All categories: Hours worked","NM_1567_1","TS059","Hours worked",0
+"NM_1567_1_1","Part-time: Total","NM_1567_1","TS059","Hours worked",1
+"NM_1567_1_2","Part-time: 15 hours or less worked","NM_1567_1","TS059","Hours worked",2
+"NM_1567_1_3","Part-time: 16 to 30 hours worked","NM_1567_1","TS059","Hours worked",3
+"NM_1567_1_4","Full-time: Total","NM_1567_1","TS059","Hours worked",4
+"NM_1567_1_5","Full-time: 31 to 48 hours worked","NM_1567_1","TS059","Hours worked",5
+"NM_1567_1_6","Full-time: 49 or more hours worked","NM_1567_1","TS059","Hours worked",6
+"NM_2076_1_0","Total: All usual residents aged 16 years and over in employment the week before the census","NM_2076_1","TS059","Hours worked",0
+"NM_2076_1_1001","Part-time","NM_2076_1","TS059","Hours worked",1
+"NM_2076_1_1","Part-time: 15 hours or less worked","NM_2076_1","TS059","Hours worked",2
+"NM_2076_1_2","Part-time: 16 to 30 hours worked","NM_2076_1","TS059","Hours worked",3
+"NM_2076_1_1002","Full-time","NM_2076_1","TS059","Hours worked",4
+"NM_2076_1_3","Full-time: 31 to 48 hours worked","NM_2076_1","TS059","Hours worked",5
+"NM_2076_1_4","Full-time: 49 or more hours worked","NM_2076_1","TS059","Hours worked",6
+"NM_1521_1_0","All categories: NS-SeC","NM_1521_1","TS062","NS-SeC",0
+"NM_1521_1_1","1. Higher managerial, administrative and professional occupations","NM_1521_1","TS062","NS-SeC",1
+"NM_1521_1_4","2. Lower managerial, administrative and professional occupations","NM_1521_1","TS062","NS-SeC",4
+"NM_1521_1_5","3. Intermediate occupations","NM_1521_1","TS062","NS-SeC",5
+"NM_1521_1_6","4. Small employers and own account workers","NM_1521_1","TS062","NS-SeC",6
+"NM_1521_1_7","5. Lower supervisory and technical occupations","NM_1521_1","TS062","NS-SeC",7
+"NM_1521_1_8","6. Semi-routine occupations","NM_1521_1","TS062","NS-SeC",8
+"NM_1521_1_9","7. Routine occupations","NM_1521_1","TS062","NS-SeC",9
+"NM_1521_1_10","8. Never worked and long-term unemployed","NM_1521_1","TS062","NS-SeC",10
+"NM_1521_1_13","L15 Full-time students","NM_1521_1","TS062","NS-SeC",13
+"NM_2079_1_0","Total: All usual residents aged 16 years and over","NM_2079_1","TS062","NS-SeC",0
+"NM_2079_1_1","L1, L2 and L3 Higher managerial, administrative and professional occupations","NM_2079_1","TS062","NS-SeC",1
+"NM_2079_1_2","L4, L5 and L6 Lower managerial, administrative and professional occupations","NM_2079_1","TS062","NS-SeC",4
+"NM_2079_1_3","L7 Intermediate occupations","NM_2079_1","TS062","NS-SeC",5
+"NM_2079_1_4","L8 and L9 Small employers and own account workers","NM_2079_1","TS062","NS-SeC",6
+"NM_2079_1_5","L10 and L11 Lower supervisory and technical occupations","NM_2079_1","TS062","NS-SeC",7
+"NM_2079_1_6","L12 Semi-routine occupations","NM_2079_1","TS062","NS-SeC",8
+"NM_2079_1_7","L13 Routine occupations","NM_2079_1","TS062","NS-SeC",9
+"NM_2079_1_8","L14.1 and L14.2 Never worked and long-term unemployed","NM_2079_1","TS062","NS-SeC",10
+"NM_2079_1_9","L15 Full-time students","NM_2079_1","TS062","NS-SeC",13
+"NM_1518_1_0","All categories: Occupation","NM_1518_1","TS063","Occupation",0
+"NM_1518_1_1","1. Managers, directors and senior officials","NM_1518_1","TS063","Occupation",1
+"NM_1518_1_2","2. Professional occupations","NM_1518_1","TS063","Occupation",2
+"NM_1518_1_3","3. Associate professional and technical occupations","NM_1518_1","TS063","Occupation",3
+"NM_1518_1_4","4. Administrative and secretarial occupations","NM_1518_1","TS063","Occupation",4
+"NM_1518_1_5","5. Skilled trades occupations","NM_1518_1","TS063","Occupation",5
+"NM_1518_1_6","6. Caring, leisure and other service occupations","NM_1518_1","TS063","Occupation",6
+"NM_1518_1_7","7. Sales and customer service occupations","NM_1518_1","TS063","Occupation",7
+"NM_1518_1_8","8. Process plant and machine operatives","NM_1518_1","TS063","Occupation",8
+"NM_1518_1_9","9. Elementary occupations","NM_1518_1","TS063","Occupation",9
+"NM_2080_1_0","Total: All usual residents aged 16 years and over in employment the week before the census","NM_2080_1","TS063","Occupation",0
+"NM_2080_1_1","1. Managers, directors and senior officials","NM_2080_1","TS063","Occupation",1
+"NM_2080_1_2","2. Professional occupations","NM_2080_1","TS063","Occupation",2
+"NM_2080_1_3","3. Associate professional and technical occupations","NM_2080_1","TS063","Occupation",3
+"NM_2080_1_4","4. Administrative and secretarial occupations","NM_2080_1","TS063","Occupation",4
+"NM_2080_1_5","5. Skilled trades occupations","NM_2080_1","TS063","Occupation",5
+"NM_2080_1_6","6. Caring, leisure and other service occupations","NM_2080_1","TS063","Occupation",6
+"NM_2080_1_7","7. Sales and customer service occupations","NM_2080_1","TS063","Occupation",7
+"NM_2080_1_8","8. Process, plant and machine operatives","NM_2080_1","TS063","Occupation",8
+"NM_2080_1_9","9. Elementary occupations","NM_2080_1","TS063","Occupation",9
+"NM_1565_1_0","All categories: Economic activity","NM_1565_1","TS066","Economic activity status",0
+"NM_1565_1_1","Economically active: Total","NM_1565_1","TS066","Economic activity status",1
+"NM_1565_1_2","Economically active: Employee: Part-time","NM_1565_1","TS066","Economic activity status",2
+"NM_1565_1_3","Economically active: Employee: Full-time","NM_1565_1","TS066","Economic activity status",3
+"NM_1565_1_4","Economically active: Self-employed with employees: Part-time","NM_1565_1","TS066","Economic activity status",4
+"NM_1565_1_5","Economically active: Self-employed with employees: Full-time","NM_1565_1","TS066","Economic activity status",5
+"NM_1565_1_6","Economically active: Self-employed without employees: Part-time","NM_1565_1","TS066","Economic activity status",6
+"NM_1565_1_7","Economically active: Self-employed without employees: Full-time","NM_1565_1","TS066","Economic activity status",7
+"NM_1565_1_8","Economically active: Unemployed","NM_1565_1","TS066","Economic activity status",8
+"NM_1565_1_9","Economically active: Full-time student","NM_1565_1","TS066","Economic activity status",9
+"NM_1565_1_10","Economically inactive: Total","NM_1565_1","TS066","Economic activity status",10
+"NM_1565_1_11","Economically inactive: Retired","NM_1565_1","TS066","Economic activity status",11
+"NM_1565_1_12","Economically inactive: Student (including full-time students)","NM_1565_1","TS066","Economic activity status",12
+"NM_1565_1_13","Economically inactive: Looking after home or family","NM_1565_1","TS066","Economic activity status",13
+"NM_1565_1_14","Economically inactive: Long-term sick or disabled","NM_1565_1","TS066","Economic activity status",14
+"NM_1565_1_15","Economically inactive: Other","NM_1565_1","TS066","Economic activity status",15
+"NM_2083_1_0","Total: All usual residents aged 16 years and over","NM_2083_1","TS066","Economic activity status",0
+"NM_2083_1_1001","Economically active (excluding full-time students)","NM_2083_1","TS066","Economic activity status",1
+"NM_2083_1_1","Economically active (excluding full-time students): In employment: Employee: Part-time","NM_2083_1","TS066","Economic activity status",2
+"NM_2083_1_2","Economically active (excluding full-time students): In employment: Employee: Full-time","NM_2083_1","TS066","Economic activity status",3
+"NM_2083_1_3","Economically active (excluding full-time students): In employment: Self-employed with employees: Part-time","NM_2083_1","TS066","Economic activity status",4
+"NM_2083_1_4","Economically active (excluding full-time students): In employment: Self-employed with employees: Full-time","NM_2083_1","TS066","Economic activity status",5
+"NM_2083_1_5","Economically active (excluding full-time students): In employment: Self-employed without employees: Part-time","NM_2083_1","TS066","Economic activity status",6
+"NM_2083_1_6","Economically active (excluding full-time students): In employment: Self-employed without employees: Full-time","NM_2083_1","TS066","Economic activity status",7
+"NM_2083_1_7","Economically active (excluding full-time students): Unemployed","NM_2083_1","TS066","Economic activity status",8
+"NM_2083_1_1006","Economically active and a full-time student","NM_2083_1","TS066","Economic activity status",9
+"NM_2083_1_1011","Economically inactive","NM_2083_1","TS066","Economic activity status",10
+"NM_2083_1_15","Economically inactive: Retired","NM_2083_1","TS066","Economic activity status",11
+"NM_2083_1_16","Economically inactive: Student","NM_2083_1","TS066","Economic activity status",12
+"NM_2083_1_17","Economically inactive: Looking after home or family","NM_2083_1","TS066","Economic activity status",13
+"NM_2083_1_18","Economically inactive: Long-term sick or disabled","NM_2083_1","TS066","Economic activity status",14
+"NM_2083_1_19","Economically inactive: Other","NM_2083_1","TS066","Economic activity status",15
+"NM_1564_1_0","All categories: Highest level of qualification","NM_1564_1","TS067","Highest level of qualification",0
+"NM_1564_1_1","No qualifications","NM_1564_1","TS067","Highest level of qualification",1
+"NM_1564_1_2","Level 1 qualifications","NM_1564_1","TS067","Highest level of qualification",2
+"NM_1564_1_3","Level 2 qualifications","NM_1564_1","TS067","Highest level of qualification",3
+"NM_1564_1_4","Apprenticeship","NM_1564_1","TS067","Highest level of qualification",4
+"NM_1564_1_5","Level 3 qualifications","NM_1564_1","TS067","Highest level of qualification",5
+"NM_1564_1_6","Level 4 qualifications and above","NM_1564_1","TS067","Highest level of qualification",6
+"NM_1564_1_7","Other qualifications","NM_1564_1","TS067","Highest level of qualification",7
+"NM_2084_1_0","Total: All usual residents aged 16 years and over","NM_2084_1","TS067","Highest level of qualification",0
+"NM_2084_1_1","No qualifications","NM_2084_1","TS067","Highest level of qualification",1
+"NM_2084_1_2","Level 1 and entry level qualifications","NM_2084_1","TS067","Highest level of qualification",2
+"NM_2084_1_3","Level 2 qualifications","NM_2084_1","TS067","Highest level of qualification",3
+"NM_2084_1_4","Apprenticeship","NM_2084_1","TS067","Highest level of qualification",4
+"NM_2084_1_5","Level 3 qualifications","NM_2084_1","TS067","Highest level of qualification",5
+"NM_2084_1_6","Level 4 qualifications or above","NM_2084_1","TS067","Highest level of qualification",6
+"NM_2084_1_7","Other qualifications","NM_2084_1","TS067","Highest level of qualification",7
+"NM_1533_1_0","All persons","NM_1533_1","TS068","Schoolchildren and full-time students",0
+"NM_2085_1_1","Student","NM_2085_1","TS068","Schoolchildren and full-time students",0

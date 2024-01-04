@@ -1,0 +1,24 @@
+
+"KS301UK - Health and provision of unpaid care"
+"ONS Crown Copyright Reserved [from Nomis on 24 February 2023]"
+"Population :","All usual residents"
+"Units      :","Persons"
+"Date       :","2011"
+
+"country","All categories: Long-term health problem or disability","Day-to-day activities limited a lot","Day-to-day activities limited a little","Day-to-day activities not limited","Day-to-day activities limited a lot: Age 16 to 64","Day-to-day activities limited a little: Age 16 to 64","Day-to-day activities not limited: Age 16 to 64"
+
+"United Kingdom",63182178,5490807,5972651,51718720,2442214,2984299,35503752
+"Great Britain",61371315,5275575,5813237,50282503,2330663,2898462,34533320
+"England",53012456,4405394,4947192,43659870,1924080,2452742,29952269
+"Wales",3063456,364318,331537,2367601,162156,167224,1615236
+"Scotland",5295403,505863,534508,4255032,244427,278496,2965815
+"Northern Ireland",1810863,215232,159414,1436217,111551,85837,970432
+"England and Wales",56075912,4769712,5278729,46027471,2086236,2619966,31567505
+
+
+
+"","In order to protect against disclosure of personal information, records"
+"","have been swapped between different geographic areas. Some counts will"
+"","be affected, particularly small counts at the lowest geographies"
+"",""
+
