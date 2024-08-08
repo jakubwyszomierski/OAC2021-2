@@ -34,7 +34,7 @@ List of folders (subfolders & files) in the project:
 - **NISRA 2021** - 2021 Census data at LGD level for Northern Ireland.
 - **Objects** - R objects created and stored to ensure consistency of the results or load big files
 - **SIR** – contingency tables on disability counts by age, utilised for calculation of Standardised Illness Ratio.
-- **shapefiles** - folder containing shapefiles used for some of the calculations/ Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/Eu4Z-haZY2dLvYvdna1PBlEB__kLPk2wHGGYJkNonhsA2w?e=VpX95K).
+- **shapefiles** - folder containing shapefiles used for some of the calculations. Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/Eu4Z-haZY2dLvYvdna1PBlEB__kLPk2wHGGYJkNonhsA2w?e=VpX95K).
 
 ### Plots
 
