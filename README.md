@@ -23,7 +23,7 @@ Creation of the **2021/2 Output Area Classification**
 List of folders (subfolders & files) in the project:
 
 - **API** - Census data downloaded and saved with use of `nomisr` package.
-- **Clean** – amalgamated data ready for the analysis. Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/Eqd1EV2WgOFJmZ7kLx-oDYMBdxqNe9IJmli6M8S-e91F0g?e=M9wh5j).
+- **Clean** – amalgamated data ready for the analysis. Downloadable via [this link](https://rdr.ucl.ac.uk/ndownloader/files/52601444).
   - Raw_counts - datasets with raw counts
   - Percentages - datasets transformed into percentages
   - Transformed - datasets transformed with IHS (analysis-ready)
@@ -34,15 +34,15 @@ List of folders (subfolders & files) in the project:
 - **NISRA 2021** - 2021 Census data at LGD level for Northern Ireland.
 - **Objects** - R objects created and stored to ensure consistency of the results or load big files
 - **SIR** – contingency tables on disability counts by age, utilised for calculation of Standardised Illness Ratio.
-- **shapefiles** - folder containing shapefiles used for some of the calculations. Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/Eu4Z-haZY2dLvYvdna1PBlEB__kLPk2wHGGYJkNonhsA2w?e=VpX95K).
+- **shapefiles** - folder containing shapefiles used for some of the calculations. Downloadable via [this link](https://rdr.ucl.ac.uk/ndownloader/files/52604723).
 
 ### Plots
 
-Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/Egu6pw70wcVOs9zMgOTruTEBxPuS5AuZAppQNDAqklQrGw?e=iIZ26F).
+Downloadable via [this link](https://rdr.ucl.ac.uk/ndownloader/files/52604771).
 
 - Bar_plots - Comparison of clusters to the UK (as well as Supergroup and Group averages)
 - Clustergrams – plots used to establish number of clusters at each classification level. 
 
 ### Maps
 
-Downloadable via [this link](https://liveuclac-my.sharepoint.com/:f:/g/personal/zcfajwy_ucl_ac_uk/EsJBp69rZBJAjPrURNU9sWABeO2g42xOu04XZYhY7jIGAw?e=OAI0E7).
+Downloadable via [this link](https://rdr.ucl.ac.uk/ndownloader/files/52604849).
